@@ -1,0 +1,53 @@
+# WATCHLIST — poredano po tržišnoj kapitalizaciji (silazno)
+# Jedan ticker po retku, sve iza # je komentar.
+#
+# NAPOMENE:
+#  - SpaceX je od 12.06.2026. na Nasdaqu pod tickerom SPCX
+#  - Micron je bio naveden dvaput → deduplicirano
+#  - Quantum košarica: QUBT + IONQ + QBTS
+#  - NOK / TSM / CCJ su strani izdavatelji (ADR). Provjeri nakon prvog
+#    pokretanja pojavljuju li se u feedu — Finnhub free tier je US-orijentiran.
+
+# ── Mega cap (> 1 000 mlrd $) ────────────────────────────────────────────
+NVDA      # NVIDIA
+GOOGL     # Alphabet Class A
+AAPL      # Apple
+MSFT      # Microsoft
+AMZN      # Amazon
+AVGO      # Broadcom
+TSM       # Taiwan Semiconductor (ADR)
+TSLA      # Tesla
+SPCX      # SpaceX (IPO 12.06.2026, Nasdaq)
+
+# ── Large cap (100–1 000 mlrd $) ─────────────────────────────────────────
+ORCL      # Oracle
+MA        # Mastercard
+PLTR      # Palantir
+AMD       # AMD
+MU        # Micron Technology
+IBM       # IBM
+NOW       # ServiceNow
+INTC      # Intel
+ETN       # Eaton
+DELL      # Dell Technologies
+
+# ── Mid cap (10–100 mlrd $) ──────────────────────────────────────────────
+VRT       # Vertiv
+STX       # Seagate
+CCJ       # Cameco (ADR)
+SNDK      # SanDisk
+WDC       # Western Digital
+TTWO      # Take-Two Interactive
+NOK       # Nokia (ADR)
+ALAB      # Astera Labs
+KTOS      # Kratos Defense
+IONQ      # IonQ (quantum)
+
+# ── Small cap (< 10 mlrd $) ──────────────────────────────────────────────
+RGTI      # Rigetti Computing
+CRSP      # CRISPR Therapeutics
+GFF       # Griffon Corporation
+QBTS      # D-Wave Quantum
+QUBT      # Quantum Computing Inc.
+OUST      # Ouster
+RCAT      # Red Cat Holdings
