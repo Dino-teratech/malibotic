@@ -8,7 +8,17 @@
 // 5. Drzi prst na widgetu → "Edit Widget" → Script: Earnings
 // ============================================================================
 
-const FEED_URL = "https://Dino-teratech.github.io/REPO/earnings.json";
+// ============================================================================
+// EARNINGS BOARD — Scriptable widget za iPhone
+// ----------------------------------------------------------------------------
+// 1. Instaliraj Scriptable iz App Storea (besplatno)
+// 2. Otvori Scriptable → "+" → zalijepi ovu skriptu → nazovi je "Earnings"
+// 3. Dolje promijeni FEED_URL u svoj GitHub Pages link
+// 4. Home screen → drži prst → "+" → Scriptable → odaberi velicinu
+// 5. Drzi prst na widgetu → "Edit Widget" → Script: Earnings
+// ============================================================================
+
+const FEED_URL = "https://KORISNIK.github.io/REPO/earnings.json";
 
 // --- paleta (departure board) -----------------------------------------------
 const C = {
@@ -53,7 +63,8 @@ async function loadWithCache() {
 }
 
 // --- pomocne -----------------------------------------------------------------
-function dayColor(days) {
+function dayColor(days, estimated) {
+  if (estimated) return C.slate;
   if (days <= 1) return C.alert;
   if (days <= 3) return C.soon;
   return C.paper;
@@ -145,7 +156,8 @@ function buildWidget(feed, stale) {
 
     // datum + BMO/AMC (preskoci na maloj velicini)
     if (FAMILY !== "small") {
-      const when = row.addText(`${shortDate(item.date)} ${item.hourLabel}`);
+      const prefix = item.estimated ? "~" : "";
+      const when = row.addText(`${prefix}${shortDate(item.date)} ${item.hourLabel}`);
       when.font = Font.systemFont(10);
       when.textColor = C.slate;
       row.addSpacer(8);
@@ -154,7 +166,7 @@ function buildWidget(feed, stale) {
     // odbrojavanje
     const cd = row.addText(dayLabel(item.days));
     cd.font = Font.semiboldSystemFont(FAMILY === "small" ? 11 : 12);
-    cd.textColor = dayColor(item.days);
+    cd.textColor = dayColor(item.days, item.estimated);
     cd.rightAlignText();
 
     if (i < items.length - 1) w.addSpacer(5);
