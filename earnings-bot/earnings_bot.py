@@ -30,8 +30,15 @@ FEED_FILE = DOCS_DIR / "earnings.json"
 # Na koliko dana prije objave zelis podsjetnik
 REMIND_DAYS = [3, 1, 0]
 
-# Finnhub free tier pokriva ~1 mjesec unaprijed
-LOOKAHEAD_DAYS = 30
+# Finnhub free tier dopusta ~1 mjesec po pozivu, pa horizont slazemo
+# iz vise uzastopnih prozora (4 x 30 = 120 dana, 4 poziva po pokretanju).
+LOOKAHEAD_DAYS = 120
+WINDOW_DAYS = 30
+
+# Telegram alarm za "novi datum" / "pomak" salje se samo ako je objava
+# blize od ovoliko dana. Dalje od toga se tiho zapise u state i feed,
+# da te bot ne zatrpa kad ugleda cijeli kvartal unaprijed.
+ANNOUNCE_WITHIN_DAYS = 14
 
 FINNHUB_URL = "https://finnhub.io/api/v1/calendar/earnings"
 TELEGRAM_URL = "https://api.telegram.org/bot{token}/sendMessage"
@@ -85,8 +92,8 @@ def save_state(state: dict) -> None:
 # ------------------------------------------------------------- fetching ----
 
 
-def fetch_calendar(token: str, date_from: dt.date, date_to: dt.date) -> list[dict]:
-    """Jedan poziv povlaci cijeli US earnings kalendar za zadani raspon."""
+def fetch_window(token: str, date_from: dt.date, date_to: dt.date) -> list[dict]:
+    """Jedan poziv - kalendar za zadani raspon (max ~30 dana na free tieru)."""
     params = urllib.parse.urlencode(
         {"from": date_from.isoformat(), "to": date_to.isoformat(), "token": token}
     )
@@ -96,6 +103,21 @@ def fetch_calendar(token: str, date_from: dt.date, date_to: dt.date) -> list[dic
     with urllib.request.urlopen(req, timeout=45) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
     return payload.get("earningsCalendar") or []
+
+
+def fetch_calendar(token: str, today: dt.date) -> list[dict]:
+    """Poslozi horizont od LOOKAHEAD_DAYS iz vise uzastopnih prozora."""
+    rows: list[dict] = []
+    for offset in range(0, LOOKAHEAD_DAYS, WINDOW_DAYS):
+        start = today + dt.timedelta(days=offset)
+        end = today + dt.timedelta(days=min(offset + WINDOW_DAYS, LOOKAHEAD_DAYS) - 1)
+        try:
+            chunk = fetch_window(token, start, end)
+            print(f"[INFO] {start} - {end}: {len(chunk)} zapisa")
+            rows.extend(chunk)
+        except Exception as exc:  # prozor moze pasti, ostali i dalje vrijede
+            print(f"[WARN] prozor {start} - {end} nije uspio: {exc}")
+    return rows
 
 
 def index_by_symbol(rows: list[dict], watchlist: list[str]) -> dict[str, dict]:
@@ -144,7 +166,9 @@ def build_alerts(
         hour_txt = HOUR_LABELS.get(hour, "vrijeme nepoznato")
         quarter = row.get("quarter")
         year = row.get("year")
-        q_txt = f"Q{quarter} {year}" if quarter and year else ""
+        # Finnhub vraca FISKALNI kvartal - kod NVDA je npr. FQ2 2027 usred
+        # kalendarske 2026. Zato eksplicitno pise "fisk.".
+        q_txt = f"FQ{quarter} {year} (fisk.)" if quarter and year else ""
         est = fmt_estimate(row)
         est_txt = f"\n   <i>{est}</i>" if est else ""
 
@@ -152,21 +176,24 @@ def build_alerts(
         prev_date = prev.get("date")
         sent = set(prev.get("sent", []))
         announced_now = False
+        near = days <= ANNOUNCE_WITHIN_DAYS
 
         if prev_date is None:
-            lines.append(
-                f"🆕 <b>{sym}</b> — objava {date_str} (za {days} d)\n"
-                f"   {q_txt}, {hour_txt}{est_txt}"
-            )
+            if near:
+                lines.append(
+                    f"🆕 <b>{sym}</b> — objava {date_str} (za {days} d)\n"
+                    f"   {q_txt}, {hour_txt}{est_txt}"
+                )
+                announced_now = True
             sent = {"new"}
-            announced_now = True
         elif prev_date != date_str:
-            lines.append(
-                f"🔄 <b>{sym}</b> — datum POMAKNUT: {prev_date} → <b>{date_str}</b> "
-                f"(za {days} d)\n   {hour_txt}{est_txt}"
-            )
+            if near:
+                lines.append(
+                    f"🔄 <b>{sym}</b> — datum POMAKNUT: {prev_date} → <b>{date_str}</b> "
+                    f"(za {days} d)\n   {hour_txt}{est_txt}"
+                )
+                announced_now = True
             sent = {"new"}
-            announced_now = True
             moved.add(sym)
 
         for d in REMIND_DAYS:
@@ -280,8 +307,8 @@ def main() -> None:
     watchlist = load_watchlist()
     print(f"[INFO] {today} | pratim {len(watchlist)} tickera")
 
-    rows = fetch_calendar(finnhub_token, today, today + dt.timedelta(days=LOOKAHEAD_DAYS))
-    print(f"[INFO] Finnhub vratio {len(rows)} zapisa")
+    rows = fetch_calendar(finnhub_token, today)
+    print(f"[INFO] Finnhub vratio ukupno {len(rows)} zapisa")
 
     calendar = index_by_symbol(rows, watchlist)
     print(f"[INFO] pogodaka na watchlisti: {len(calendar)}")
