@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-08T12:14:08+00:00",
+  "generated": "2026-08-08T12:52:12+00:00",
   "count": 34,
   "confirmed": 32,
   "items": [
@@ -15,6 +15,7 @@
       "epsEstimate": -1.2264,
       "revenueEstimate": 6925075,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -30,6 +31,7 @@
       "epsEstimate": -0.0388,
       "revenueEstimate": 5254530,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -45,6 +47,7 @@
       "epsEstimate": 2.1274,
       "revenueEstimate": 93606383310,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -60,6 +63,7 @@
       "epsEstimate": 3.3012,
       "revenueEstimate": 29947978596,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -75,6 +79,7 @@
       "epsEstimate": 4.9897,
       "revenueEstimate": 45746068740,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -90,6 +95,7 @@
       "epsEstimate": 1.7745,
       "revenueEstimate": 19522037203,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -105,6 +111,7 @@
       "epsEstimate": 32.2476,
       "revenueEstimate": 52142950606,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -120,6 +127,7 @@
       "epsEstimate": 0.4492,
       "revenueEstimate": 28069760327,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -135,6 +143,7 @@
       "epsEstimate": 1.8344,
       "revenueEstimate": 3780295235,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -150,6 +159,7 @@
       "epsEstimate": 2.9198,
       "revenueEstimate": 16986567840,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -165,6 +175,7 @@
       "epsEstimate": 0.3936,
       "revenueEstimate": 16671013793,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -180,6 +191,7 @@
       "epsEstimate": 7.3,
       "revenueEstimate": 4124821072,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -195,6 +207,7 @@
       "epsEstimate": 3.1009,
       "revenueEstimate": 130843947770,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -210,6 +223,7 @@
       "epsEstimate": 4.7263,
       "revenueEstimate": 91491184249,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -225,6 +239,7 @@
       "epsEstimate": 1.036,
       "revenueEstimate": 4136033405,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -240,6 +255,7 @@
       "epsEstimate": 2.0468,
       "revenueEstimate": 116373130794,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -255,6 +271,7 @@
       "epsEstimate": 1.9445,
       "revenueEstimate": 208813033689,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -270,6 +287,7 @@
       "epsEstimate": 5.2656,
       "revenueEstimate": 9944768408,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -285,6 +303,7 @@
       "epsEstimate": 3.7282,
       "revenueEstimate": 3998731844,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -300,6 +319,7 @@
       "epsEstimate": 0.7988,
       "revenueEstimate": 418242503,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -315,6 +335,7 @@
       "epsEstimate": 1.8517,
       "revenueEstimate": 12501106279,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -330,6 +351,7 @@
       "epsEstimate": 3.5408,
       "revenueEstimate": 8264502638,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     },
@@ -345,6 +367,7 @@
       "epsEstimate": 0.1982,
       "revenueEstimate": 468971877,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -360,6 +383,7 @@
       "epsEstimate": -0.238,
       "revenueEstimate": 58629600,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -375,6 +399,7 @@
       "epsEstimate": 0.3782,
       "revenueEstimate": 2037848381,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -390,6 +415,7 @@
       "epsEstimate": -0.084,
       "revenueEstimate": 14363344,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -405,6 +431,7 @@
       "epsEstimate": 0.3597,
       "revenueEstimate": 734752103,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -420,6 +447,7 @@
       "epsEstimate": -0.2803,
       "revenueEstimate": 68579924,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -435,6 +463,7 @@
       "epsEstimate": null,
       "revenueEstimate": null,
       "estimated": true,
+      "confirmed": false,
       "basedOn": "2026-08-04",
       "moved": false
     },
@@ -450,6 +479,7 @@
       "epsEstimate": 41.473,
       "revenueEstimate": 10255049328,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -465,6 +495,7 @@
       "epsEstimate": 0.9371,
       "revenueEstimate": 1767106517,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -480,6 +511,7 @@
       "epsEstimate": null,
       "revenueEstimate": null,
       "estimated": true,
+      "confirmed": false,
       "basedOn": "2026-08-06",
       "moved": false
     },
@@ -495,6 +527,7 @@
       "epsEstimate": -0.0532,
       "revenueEstimate": 3834741,
       "estimated": false,
+      "confirmed": false,
       "basedOn": null,
       "moved": false
     },
@@ -510,6 +543,7 @@
       "epsEstimate": 1.5268,
       "revenueEstimate": 486098567,
       "estimated": false,
+      "confirmed": true,
       "basedOn": null,
       "moved": false
     }

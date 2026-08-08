@@ -1,5 +1,6 @@
 {
   "AAPL": {
+    "confirmed": true,
     "date": "2026-10-28",
     "hour": "amc",
     "sent": [
@@ -7,20 +8,25 @@
     ]
   },
   "ALAB": {
+    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
+    "resultSent": "2026-08-04",
     "sent": [
       "new"
     ]
   },
   "AMD": {
+    "confirmed": true,
     "date": "2026-11-02",
     "hour": "amc",
+    "resultSent": "2026-08-04",
     "sent": [
       "new"
     ]
   },
   "AMZN": {
+    "confirmed": true,
     "date": "2026-10-28",
     "hour": "amc",
     "sent": [
@@ -28,6 +34,7 @@
     ]
   },
   "AVGO": {
+    "confirmed": true,
     "date": "2026-09-02",
     "hour": "amc",
     "sent": [
@@ -35,6 +42,7 @@
     ]
   },
   "CCJ": {
+    "confirmed": false,
     "date": "2026-11-03",
     "hour": "",
     "sent": [
@@ -42,6 +50,7 @@
     ]
   },
   "CRSP": {
+    "confirmed": false,
     "date": "2026-08-10",
     "hour": "",
     "sent": [
@@ -49,6 +58,7 @@
     ]
   },
   "DELL": {
+    "confirmed": false,
     "date": "2026-09-03",
     "hour": "",
     "sent": [
@@ -56,6 +66,7 @@
     ]
   },
   "ETN": {
+    "confirmed": true,
     "date": "2026-11-02",
     "hour": "bmo",
     "sent": [
@@ -63,13 +74,16 @@
     ]
   },
   "GFF": {
+    "confirmed": true,
     "date": "2026-11-17",
     "hour": "amc",
+    "resultSent": "2026-08-05",
     "sent": [
       "new"
     ]
   },
   "GOOGL": {
+    "confirmed": true,
     "date": "2026-10-27",
     "hour": "amc",
     "sent": [
@@ -77,6 +91,7 @@
     ]
   },
   "IBM": {
+    "confirmed": true,
     "date": "2026-10-21",
     "hour": "amc",
     "sent": [
@@ -84,6 +99,7 @@
     ]
   },
   "INTC": {
+    "confirmed": true,
     "date": "2026-10-21",
     "hour": "amc",
     "sent": [
@@ -91,20 +107,25 @@
     ]
   },
   "IONQ": {
+    "confirmed": false,
     "date": "2026-11-03",
     "hour": "",
+    "resultSent": "2026-08-05",
     "sent": [
       "new"
     ]
   },
   "KTOS": {
+    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
+    "resultSent": "2026-08-04",
     "sent": [
       "new"
     ]
   },
   "MA": {
+    "confirmed": true,
     "date": "2026-10-28",
     "hour": "bmo",
     "sent": [
@@ -112,6 +133,7 @@
     ]
   },
   "MSFT": {
+    "confirmed": false,
     "date": "2026-10-27",
     "hour": "",
     "sent": [
@@ -119,6 +141,7 @@
     ]
   },
   "MU": {
+    "confirmed": true,
     "date": "2026-09-21",
     "hour": "amc",
     "sent": [
@@ -126,6 +149,7 @@
     ]
   },
   "NOW": {
+    "confirmed": true,
     "date": "2026-10-27",
     "hour": "amc",
     "sent": [
@@ -133,6 +157,7 @@
     ]
   },
   "NVDA": {
+    "confirmed": true,
     "date": "2026-08-26",
     "hour": "amc",
     "sent": [
@@ -140,6 +165,7 @@
     ]
   },
   "ORCL": {
+    "confirmed": false,
     "date": "2026-09-07",
     "hour": "",
     "sent": [
@@ -147,48 +173,66 @@
     ]
   },
   "OUST": {
+    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
+    "resultSent": "2026-08-06",
     "sent": [
       "new"
     ]
   },
   "PLTR": {
+    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
+    "resultSent": "2026-08-03",
     "sent": [
       "new"
     ]
   },
   "QBTS": {
+    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
+    "resultSent": "2026-08-06",
     "sent": [
       "new"
     ]
   },
   "QUBT": {
+    "confirmed": true,
     "date": "2026-08-10",
     "hour": "amc",
     "sent": [
       "new"
     ]
   },
+  "RCAT": {
+    "resultSent": "2026-08-06"
+  },
   "RGTI": {
+    "confirmed": false,
     "date": "2026-11-09",
     "hour": "",
+    "resultSent": "2026-08-06",
     "sent": [
       "new"
     ]
   },
   "SNDK": {
+    "confirmed": false,
     "date": "2026-11-04",
     "hour": "",
+    "resultSent": "2026-08-05",
     "sent": [
       "new"
     ]
   },
+  "SPCX": {
+    "resultSent": "2026-08-04"
+  },
   "STX": {
+    "confirmed": false,
     "date": "2026-10-26",
     "hour": "",
     "sent": [
@@ -196,6 +240,7 @@
     ]
   },
   "TSLA": {
+    "confirmed": true,
     "date": "2026-10-20",
     "hour": "amc",
     "sent": [
@@ -203,13 +248,16 @@
     ]
   },
   "TTWO": {
+    "confirmed": false,
     "date": "2026-11-04",
     "hour": "",
+    "resultSent": "2026-08-07",
     "sent": [
       "new"
     ]
   },
   "VRT": {
+    "confirmed": false,
     "date": "2026-10-20",
     "hour": "",
     "sent": [
@@ -217,8 +265,10 @@
     ]
   },
   "WDC": {
+    "confirmed": false,
     "date": "2026-10-28",
     "hour": "",
+    "resultSent": "2026-08-05",
     "sent": [
       "new"
     ]
