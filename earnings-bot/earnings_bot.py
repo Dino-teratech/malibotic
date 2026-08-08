@@ -36,8 +36,24 @@ FEED_FILE = DOCS_DIR / "earnings.json"
 # Na koliko dana prije objave zelis podsjetnik
 REMIND_DAYS = [3, 1, 0]
 
-# Alarm za "novi datum" / "pomak" salje se samo unutar ovog raspona
+# Alarm za "novi datum" / "pomak" / "potvrdjeno" salje se samo unutar
+# ovog raspona
 ANNOUNCE_WITHIN_DAYS = 14
+
+# Koliko dana znacka POMAK ostaje vidljiva u widgetu nakon promjene
+MOVED_BADGE_DAYS = 5
+
+# Sazetak rezultata se salje za objave koje su se dogodile unutar
+# ovoliko dana. Kratko namjerno - da prvi run ne posalje pola kvartala.
+RESULT_WITHIN_DAYS = 5
+
+# Ako je rijeseno manje od ovoliko tickera, nesto je puklo (istekao
+# kljuc, limit, izmjena API-ja) - run bi inace ostao zelen i ne bi se
+# vidjelo da bot tiho ne radi.
+HEALTH_MIN_RESOLVED = 25
+
+# Rezervirani kljuc u state.json (ne moze se poklopiti s tickerom)
+META_KEY = "__meta"
 
 # Koliko unatrag gledamo povijest objava (treba > 1 godina za dobru procjenu)
 LOOKBACK_DAYS = 400
@@ -169,6 +185,13 @@ def fetch_all(token: str, watchlist: list[str], today: dt.date) -> list[dict]:
 # ------------------------------------------------------------ resolving ----
 
 
+def is_confirmed(row: dict) -> bool:
+    """Je li kompanija sluzbeno potvrdila termin. Finnhub upise oznaku
+    bmo/amc/dmh samo za potvrdjene objave; ako oznake nema, datum je
+    Finnhubova vlastita projekcija i moze biti pogresan."""
+    return (row.get("hour") or "").lower() in HOUR_WINDOWS_ET
+
+
 def is_reported(row: dict) -> bool:
     """Je li izvjestaj VEC objavljen. Finnhub unaprijed upise ocekivani
     datum; ako kompanija objavi ranije, taj unos ponekad ostane visjeti
@@ -225,6 +248,7 @@ def resolve_next(
         if future:
             entry = dict(future[0])
             entry["estimated"] = False
+            entry["confirmed"] = is_confirmed(entry)
             result[sym] = entry
             continue
 
@@ -246,16 +270,129 @@ def resolve_next(
                 "revenueEstimate": None,
                 "estimated": True,
                 "basedOn": last["date"],
+                "confirmed": False,
             }
 
     missing = sorted(wanted - set(result))
     if missing:
         print(f"[WARN] bez ijednog zapisa (ni povijesnog): {', '.join(missing)}")
 
-    confirmed = sum(1 for r in result.values() if not r["estimated"])
+    conf = sum(1 for r in result.values() if r.get("confirmed"))
+    unconf = sum(1 for r in result.values()
+                 if not r.get("confirmed") and not r["estimated"])
+    est = sum(1 for r in result.values() if r["estimated"])
     print(f"[INFO] rijeseno {len(result)}/{len(wanted)} "
-          f"({confirmed} potvrdjeno, {len(result) - confirmed} procjena)")
+          f"({conf} potvrdjeno, {unconf} nepotvrdjeno, {est} procjena)")
+    if unconf:
+        names = sorted(k for k, r in result.items()
+                       if not r.get("confirmed") and not r["estimated"])
+        print(f"[INFO] datum nije potvrdila kompanija: {', '.join(names)}")
     return result
+
+
+def find_results(
+    rows: list[dict], watchlist: list[str], today: dt.date
+) -> dict[str, dict]:
+    """Nedavno OBJAVLJENI rezultati - redovi s popunjenim 'actual'."""
+    wanted = set(watchlist)
+    best: dict[str, dict] = {}
+    for row in rows:
+        sym = (row.get("symbol") or "").upper()
+        if sym not in wanted or not row.get("date") or not is_reported(row):
+            continue
+        age = (today - dt.date.fromisoformat(row["date"])).days
+        if not 0 <= age <= RESULT_WITHIN_DAYS:
+            continue
+        if sym not in best or row["date"] > best[sym]["date"]:
+            best[sym] = row
+    if best:
+        print(f"[INFO] nedavno objavljeni rezultati: {', '.join(sorted(best))}")
+    return best
+
+
+def pct_surprise(actual, estimate) -> float | None:
+    """Odstupanje od procjene. Radi i s negativnim procjenama:
+    manji gubitak od ocekivanog je pozitivno iznenadenje."""
+    if actual is None or estimate in (None, 0):
+        return None
+    return (actual - estimate) / abs(estimate) * 100.0
+
+
+def fmt_money(v) -> str:
+    if v is None:
+        return "\u2014"
+    return f"{v / 1e9:.2f} B$" if abs(v) >= 1e9 else f"{v / 1e6:.0f} M$"
+
+
+def build_results(
+    results: dict[str, dict], state: dict, today: dt.date
+) -> tuple[list[str], dict]:
+    """Sazetak: sto je objavljeno i kako se odnosi prema procjeni."""
+    lines: list[str] = []
+    new_state = dict(state)
+
+    for sym in sorted(results):
+        row = results[sym]
+        date_str = row["date"]
+        entry = dict(new_state.get(sym, {}))
+        if entry.get("resultSent") == date_str:
+            continue  # vec poslano
+
+        eps_a, eps_e = row.get("epsActual"), row.get("epsEstimate")
+        rev_a, rev_e = row.get("revenueActual"), row.get("revenueEstimate")
+        eps_pct = pct_surprise(eps_a, eps_e)
+        rev_pct = pct_surprise(rev_a, rev_e)
+
+        if eps_pct is None:
+            head, mark = "objavila rezultate", "\U0001f4c4"
+        elif eps_pct >= 1:
+            head, mark = f"BEAT po EPS-u ({eps_pct:+.1f}%)", "\U0001f7e2"
+        elif eps_pct <= -1:
+            head, mark = f"MISS po EPS-u ({eps_pct:+.1f}%)", "\U0001f534"
+        else:
+            head, mark = "u skladu s procjenom", "\u26aa"
+
+        parts = [f"{mark} <b>{sym}</b> \u2014 {head}", f"   objavljeno {date_str}"]
+        if eps_a is not None:
+            exp = f" (oc. {eps_e})" if eps_e is not None else ""
+            parts.append(f"   EPS {eps_a}{exp}")
+        if rev_a is not None:
+            exp = f" (oc. {fmt_money(rev_e)})" if rev_e is not None else ""
+            extra = f", {rev_pct:+.1f}%" if rev_pct is not None else ""
+            parts.append(f"   prihod {fmt_money(rev_a)}{exp}{extra}")
+        parts.append(
+            f'   <a href="{QUOTE_URL.format(symbol=sym)}">reakcija dionice \u2192</a>'
+        )
+        lines.append("\n".join(parts))
+
+        entry["resultSent"] = date_str
+        new_state[sym] = entry
+
+    return lines, new_state
+
+
+def health_warning(
+    resolved: int, total: int, state: dict, today: dt.date
+) -> tuple[list[str], dict]:
+    """Upozori ako je pokrivenost naglo pala - najvise jednom dnevno."""
+    new_state = dict(state)
+    if resolved >= HEALTH_MIN_RESOLVED:
+        return [], new_state
+
+    meta = dict(new_state.get(META_KEY, {}))
+    stamp = today.isoformat()
+    if meta.get("healthWarnedOn") == stamp:
+        return [], new_state  # danas je vec javljeno
+
+    meta["healthWarnedOn"] = stamp
+    new_state[META_KEY] = meta
+    print(f"[WARN] pokrivenost pala: {resolved}/{total}")
+    return [
+        f"\u26a0\ufe0f <b>Bot ne dobiva podatke</b>\n"
+        f"   Rijeseno samo {resolved} od {total} tickera "
+        f"(ocekivano najmanje {HEALTH_MIN_RESOLVED}).\n"
+        f"   Provjeri Finnhub kljuc i limit poziva."
+    ], new_state
 
 
 # ------------------------------------------------------------- alerting ----
@@ -280,7 +417,6 @@ def build_alerts(
 ) -> tuple[list[str], dict, set[str]]:
     lines: list[str] = []
     new_state = dict(state)
-    moved: set[str] = set()
 
     for sym in sorted(calendar):
         row = calendar[sym]
@@ -301,17 +437,23 @@ def build_alerts(
         if win:
             hour_txt = f"{hour_txt.split(' (')[0]}, oko {win} po nasem"
         link = QUOTE_URL.format(symbol=sym)
+        warn = ("" if is_confirmed(row) else
+                "\n   \u26a0\ufe0f <b>datum nije potvrdila kompanija</b> \u2014 provjeri")
         quarter, year = row.get("quarter"), row.get("year")
         q_txt = f"FQ{quarter} {year} (fisk.)" if quarter and year else ""
         est = fmt_estimate(row)
         est_txt = f"\n   <i>{est}</i>" if est else ""
+        est_txt += warn
         est_txt += f'\n   <a href="{link}">prati objavu \u2192</a>' 
 
         prev = new_state.get(sym, {})
         prev_date = prev.get("date")
+        prev_confirmed = bool(prev.get("confirmed"))
+        moved_at = prev.get("movedAt")
         sent = set(prev.get("sent", []))
         announced_now = False
         near = days <= ANNOUNCE_WITHIN_DAYS
+        now_confirmed = is_confirmed(row)
 
         if prev_date is None:
             if near:
@@ -329,7 +471,17 @@ def build_alerts(
                 )
                 announced_now = True
             sent = {"new"}
-            moved.add(sym)
+            moved_at = today.isoformat()
+
+        elif not prev_confirmed and now_confirmed:
+            # datum isti, ali kompanija ga je sada sluzbeno potvrdila
+            if near:
+                when_txt = f", oko {win} po nasem" if win else ""
+                lines.append(
+                    f"\u2705 <b>{sym}</b> \u2014 termin POTVRDJEN: "
+                    f"{date_str}{when_txt} (za {days} d)"
+                )
+                announced_now = True
 
         for d in REMIND_DAYS:
             key = f"d{d}"
@@ -344,12 +496,31 @@ def build_alerts(
                 )
                 sent.add(key)
 
-        new_state[sym] = {"date": date_str, "hour": hour, "sent": sorted(sent)}
+        entry = {
+            "date": date_str,
+            "hour": hour,
+            "confirmed": now_confirmed,
+            "sent": sorted(sent),
+        }
+        if moved_at:
+            entry["movedAt"] = moved_at
+        new_state[sym] = entry
 
-    return lines, new_state, moved
+    return lines, new_state
 
 
-def write_feed(calendar: dict[str, dict], moved: set[str], today: dt.date) -> None:
+def recently_moved(state: dict, sym: str, today: dt.date) -> bool:
+    """Znacka POMAK ostaje vidljiva nekoliko dana, a ne samo jedan run."""
+    stamp = (state.get(sym) or {}).get("movedAt")
+    if not stamp:
+        return False
+    try:
+        return (today - dt.date.fromisoformat(stamp)).days <= MOVED_BADGE_DAYS
+    except ValueError:
+        return False
+
+
+def write_feed(calendar: dict[str, dict], state: dict, today: dt.date) -> None:
     items = []
     for sym in sorted(calendar):
         row = calendar[sym]
@@ -371,8 +542,9 @@ def write_feed(calendar: dict[str, dict], moved: set[str], today: dt.date) -> No
                 "epsEstimate": row.get("epsEstimate"),
                 "revenueEstimate": row.get("revenueEstimate"),
                 "estimated": bool(row.get("estimated")),
+                "confirmed": bool(row.get("confirmed")),
                 "basedOn": row.get("basedOn"),
-                "moved": sym in moved,
+                "moved": recently_moved(state, sym, today),
             }
         )
     items.sort(key=lambda i: (i["days"], i["symbol"]))
@@ -441,8 +613,17 @@ def main() -> None:
     rows = fetch_all(finnhub_token, watchlist, today)
     calendar = resolve_next(rows, watchlist, today)
 
+    results = find_results(rows, watchlist, today)
+
     state = load_state()
-    alerts, new_state, moved = build_alerts(calendar, state, today)
+    alerts, new_state = build_alerts(calendar, state, today)
+
+    result_lines, new_state = build_results(results, new_state, today)
+    health_lines, new_state = health_warning(
+        len(calendar), len(watchlist), new_state, today
+    )
+    # rezultati prvi - to je vijest; upozorenje o zdravlju na kraj
+    alerts = result_lines + alerts + health_lines
 
     if not alerts:
         print("[INFO] Nema novih obavijesti.")
@@ -457,7 +638,7 @@ def main() -> None:
                 send_telegram(tg_token, tg_chat, part)
             print(f"[INFO] Poslano {len(alerts)} obavijesti.")
 
-    write_feed(calendar, moved, today)
+    write_feed(calendar, new_state, today)
 
     if not dry_run:
         save_state(new_state)
