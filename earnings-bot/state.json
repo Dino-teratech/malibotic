@@ -1,7 +1,42 @@
 {
+  "AAPL": {
+    "date": "2026-10-28",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "ALAB": {
+    "date": "2026-11-02",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "AMD": {
+    "date": "2026-11-02",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "AMZN": {
+    "date": "2026-10-28",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
   "AVGO": {
     "date": "2026-09-02",
     "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "CCJ": {
+    "date": "2026-11-03",
+    "hour": "",
     "sent": [
       "new"
     ]
@@ -20,8 +55,22 @@
       "new"
     ]
   },
+  "ETN": {
+    "date": "2026-11-02",
+    "hour": "bmo",
+    "sent": [
+      "new"
+    ]
+  },
   "GFF": {
     "date": "2026-11-17",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "GOOGL": {
+    "date": "2026-10-27",
     "hour": "amc",
     "sent": [
       "new"
@@ -41,8 +90,43 @@
       "new"
     ]
   },
+  "IONQ": {
+    "date": "2026-11-03",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "KTOS": {
+    "date": "2026-11-02",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "MA": {
+    "date": "2026-10-28",
+    "hour": "bmo",
+    "sent": [
+      "new"
+    ]
+  },
+  "MSFT": {
+    "date": "2026-10-27",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
   "MU": {
     "date": "2026-09-21",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "NOW": {
+    "date": "2026-10-27",
     "hour": "amc",
     "sent": [
       "new"
@@ -62,15 +146,43 @@
       "new"
     ]
   },
-  "QUBT": {
-    "date": "2026-11-12",
+  "OUST": {
+    "date": "2026-11-02",
     "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "PLTR": {
+    "date": "2026-11-02",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "QBTS": {
+    "date": "2026-11-02",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "QUBT": {
+    "date": "2026-08-10",
+    "hour": "amc",
     "sent": [
       "new"
     ]
   },
   "RGTI": {
     "date": "2026-11-09",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "SNDK": {
+    "date": "2026-11-04",
     "hour": "",
     "sent": [
       "new"
@@ -90,8 +202,22 @@
       "new"
     ]
   },
+  "TTWO": {
+    "date": "2026-11-04",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
   "VRT": {
     "date": "2026-10-20",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "WDC": {
+    "date": "2026-10-28",
     "hour": "",
     "sent": [
       "new"
