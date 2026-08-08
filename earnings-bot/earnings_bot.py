@@ -169,6 +169,13 @@ def fetch_all(token: str, watchlist: list[str], today: dt.date) -> list[dict]:
 # ------------------------------------------------------------ resolving ----
 
 
+def is_reported(row: dict) -> bool:
+    """Je li izvjestaj VEC objavljen. Finnhub unaprijed upise ocekivani
+    datum; ako kompanija objavi ranije, taj unos ponekad ostane visjeti
+    kao buduci. Popunjen 'actual' je pouzdan znak da je posao obavljen."""
+    return row.get("epsActual") is not None or row.get("revenueActual") is not None
+
+
 def local_window(date_str: str, hour: str) -> str | None:
     """Prozor objave po zagrebackom vremenu, npr. '22:05-22:45'."""
     window = HOUR_WINDOWS_ET.get(hour)
@@ -203,8 +210,17 @@ def resolve_next(
     result: dict[str, dict] = {}
     for sym, items in by_sym.items():
         items.sort(key=lambda r: r["date"])
-        future = [r for r in items if dt.date.fromisoformat(r["date"]) >= today]
-        past = [r for r in items if dt.date.fromisoformat(r["date"]) < today]
+        # Red s popunjenim 'actual' ide u povijest cak i ako mu je datum
+        # u buducnosti - taj je kvartal vec objavljen.
+        future, past = [], []
+        for r in items:
+            if dt.date.fromisoformat(r["date"]) >= today and not is_reported(r):
+                future.append(r)
+            else:
+                past.append(r)
+                if is_reported(r) and dt.date.fromisoformat(r["date"]) >= today:
+                    print(f"[INFO] {sym:6} {r['date']} je VEC objavljen "
+                          f"(zastarjeli unos u kalendaru), preskacem")
 
         if future:
             entry = dict(future[0])
