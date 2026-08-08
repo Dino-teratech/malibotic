@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """
-Earnings alert bot
-------------------
-Provjerava Finnhub earnings kalendar za tickere iz watchlist.txt
-i salje Telegram poruku kad:
-  * se pojavi novi (do sad nepoznat) datum objave
-  * se vec poznati datum PROMIJENI (cesto se dogadja!)
-  * je do objave ostalo 7 / 3 / 1 / 0 dana
+Earnings alert bot  (v3)
+------------------------
+Za svaki ticker s watchliste odreduje SLJEDECU objavu kvartalnih rezultata:
 
-Stanje se cuva u state.json da se ista obavijest ne salje dvaput.
+  1. POTVRDJEN datum  - ako ga Finnhub vec ima u kalendaru
+  2. PROCJENA         - ako nema, racuna se iz zadnje objave + ~91 dan
+                        (kompanije objavljuju vrlo pravilno)
+
+Telegram alarm salje se SAMO za potvrdjene datume. Procjene se prikazuju
+u widgetu i na dashboardu, ali ne okidaju obavijesti - da te bot ne budi
+zbog nagadanja.
+
+Stanje se cuva u state.json da se ista obavijest ne posalje dvaput.
 """
 
 import datetime as dt
@@ -16,6 +20,7 @@ import json
 import os
 import pathlib
 import sys
+import time
 import urllib.parse
 import urllib.request
 
@@ -30,15 +35,19 @@ FEED_FILE = DOCS_DIR / "earnings.json"
 # Na koliko dana prije objave zelis podsjetnik
 REMIND_DAYS = [3, 1, 0]
 
-# Finnhub free tier dopusta ~1 mjesec po pozivu, pa horizont slazemo
-# iz vise uzastopnih prozora (4 x 30 = 120 dana, 4 poziva po pokretanju).
-LOOKAHEAD_DAYS = 120
-WINDOW_DAYS = 30
-
-# Telegram alarm za "novi datum" / "pomak" salje se samo ako je objava
-# blize od ovoliko dana. Dalje od toga se tiho zapise u state i feed,
-# da te bot ne zatrpa kad ugleda cijeli kvartal unaprijed.
+# Alarm za "novi datum" / "pomak" salje se samo unutar ovog raspona
 ANNOUNCE_WITHIN_DAYS = 14
+
+# Koliko unatrag gledamo povijest objava (treba > 1 godina za dobru procjenu)
+LOOKBACK_DAYS = 400
+# Koliko unaprijed trazimo potvrdjene datume
+LOOKAHEAD_DAYS = 120
+# Finnhub free tier dopusta ~1 mjesec po pozivu
+WINDOW_DAYS = 30
+# Prosjecni razmak izmedu objava
+QUARTER_DAYS = 91
+# Pauza izmedu poziva (limit je 60/min)
+CALL_DELAY = 0.25
 
 FINNHUB_URL = "https://finnhub.io/api/v1/calendar/earnings"
 TELEGRAM_URL = "https://api.telegram.org/bot{token}/sendMessage"
@@ -93,44 +102,102 @@ def save_state(state: dict) -> None:
 
 
 def fetch_window(token: str, date_from: dt.date, date_to: dt.date) -> list[dict]:
-    """Jedan poziv - kalendar za zadani raspon (max ~30 dana na free tieru)."""
     params = urllib.parse.urlencode(
         {"from": date_from.isoformat(), "to": date_to.isoformat(), "token": token}
     )
     req = urllib.request.Request(
-        f"{FINNHUB_URL}?{params}", headers={"User-Agent": "earnings-bot/1.0"}
+        f"{FINNHUB_URL}?{params}", headers={"User-Agent": "earnings-bot/3.0"}
     )
     with urllib.request.urlopen(req, timeout=45) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
     return payload.get("earningsCalendar") or []
 
 
-def fetch_calendar(token: str, today: dt.date) -> list[dict]:
-    """Poslozi horizont od LOOKAHEAD_DAYS iz vise uzastopnih prozora."""
+def fetch_all(token: str, today: dt.date) -> list[dict]:
+    """Povijest + buducnost, slozeno iz uzastopnih prozora od 30 dana."""
     rows: list[dict] = []
-    for offset in range(0, LOOKAHEAD_DAYS, WINDOW_DAYS):
-        start = today + dt.timedelta(days=offset)
-        end = today + dt.timedelta(days=min(offset + WINDOW_DAYS, LOOKAHEAD_DAYS) - 1)
+    start = today - dt.timedelta(days=LOOKBACK_DAYS)
+    end = today + dt.timedelta(days=LOOKAHEAD_DAYS)
+
+    cur = start
+    windows = 0
+    while cur <= end:
+        w_end = min(cur + dt.timedelta(days=WINDOW_DAYS - 1), end)
         try:
-            chunk = fetch_window(token, start, end)
-            print(f"[INFO] {start} - {end}: {len(chunk)} zapisa")
+            chunk = fetch_window(token, cur, w_end)
             rows.extend(chunk)
-        except Exception as exc:  # prozor moze pasti, ostali i dalje vrijede
-            print(f"[WARN] prozor {start} - {end} nije uspio: {exc}")
+            print(f"[INFO] {cur} .. {w_end}: {len(chunk)} zapisa")
+        except Exception as exc:
+            print(f"[WARN] prozor {cur} .. {w_end} nije uspio: {exc}")
+        windows += 1
+        cur = w_end + dt.timedelta(days=1)
+        time.sleep(CALL_DELAY)
+
+    print(f"[INFO] {windows} prozora, ukupno {len(rows)} zapisa")
     return rows
 
 
-def index_by_symbol(rows: list[dict], watchlist: list[str]) -> dict[str, dict]:
-    """Za svaki ticker uzmi NAJRANIJI nadolazeci zapis."""
+# ------------------------------------------------------------ resolving ----
+
+
+def next_weekday(d: dt.date) -> dt.date:
+    """Objave su radnim danima - pomakni vikend na ponedjeljak."""
+    while d.weekday() >= 5:
+        d += dt.timedelta(days=1)
+    return d
+
+
+def resolve_next(
+    rows: list[dict], watchlist: list[str], today: dt.date
+) -> dict[str, dict]:
+    """Za svaki ticker vrati sljedecu objavu: potvrdjenu ili procijenjenu."""
     wanted = set(watchlist)
-    best: dict[str, dict] = {}
+    by_sym: dict[str, list[dict]] = {}
     for row in rows:
         sym = (row.get("symbol") or "").upper()
-        if sym not in wanted or not row.get("date"):
+        if sym in wanted and row.get("date"):
+            by_sym.setdefault(sym, []).append(row)
+
+    result: dict[str, dict] = {}
+    for sym, items in by_sym.items():
+        items.sort(key=lambda r: r["date"])
+        future = [r for r in items if dt.date.fromisoformat(r["date"]) >= today]
+        past = [r for r in items if dt.date.fromisoformat(r["date"]) < today]
+
+        if future:
+            entry = dict(future[0])
+            entry["estimated"] = False
+            result[sym] = entry
             continue
-        if sym not in best or row["date"] < best[sym]["date"]:
-            best[sym] = row
-    return best
+
+        if past:
+            last = past[-1]
+            last_date = dt.date.fromisoformat(last["date"])
+            # kotrljaj po kvartalima dok procjena ne padne u buducnost
+            est = last_date + dt.timedelta(days=QUARTER_DAYS)
+            while est < today:
+                est += dt.timedelta(days=QUARTER_DAYS)
+            est = next_weekday(est)
+            result[sym] = {
+                "symbol": sym,
+                "date": est.isoformat(),
+                "hour": last.get("hour") or "",
+                "quarter": None,
+                "year": None,
+                "epsEstimate": None,
+                "revenueEstimate": None,
+                "estimated": True,
+                "basedOn": last["date"],
+            }
+
+    missing = sorted(wanted - set(result))
+    if missing:
+        print(f"[WARN] bez ijednog zapisa (ni povijesnog): {', '.join(missing)}")
+
+    confirmed = sum(1 for r in result.values() if not r["estimated"])
+    print(f"[INFO] rijeseno {len(result)}/{len(wanted)} "
+          f"({confirmed} potvrdjeno, {len(result) - confirmed} procjena)")
+    return result
 
 
 # ------------------------------------------------------------- alerting ----
@@ -144,7 +211,7 @@ def fmt_estimate(row: dict) -> str:
         bits.append(f"EPS est. {eps}")
     if rev:
         bits.append(f"prihod est. {rev / 1e9:.2f} B$")
-    return " · ".join(bits)
+    return " \u00b7 ".join(bits)
 
 
 def build_alerts(
@@ -156,6 +223,11 @@ def build_alerts(
 
     for sym in sorted(calendar):
         row = calendar[sym]
+
+        # procjene nikad ne okidaju alarm
+        if row.get("estimated"):
+            continue
+
         date_str = row["date"]
         edate = dt.date.fromisoformat(date_str)
         days = (edate - today).days
@@ -164,10 +236,7 @@ def build_alerts(
 
         hour = (row.get("hour") or "").lower()
         hour_txt = HOUR_LABELS.get(hour, "vrijeme nepoznato")
-        quarter = row.get("quarter")
-        year = row.get("year")
-        # Finnhub vraca FISKALNI kvartal - kod NVDA je npr. FQ2 2027 usred
-        # kalendarske 2026. Zato eksplicitno pise "fisk.".
+        quarter, year = row.get("quarter"), row.get("year")
         q_txt = f"FQ{quarter} {year} (fisk.)" if quarter and year else ""
         est = fmt_estimate(row)
         est_txt = f"\n   <i>{est}</i>" if est else ""
@@ -181,7 +250,7 @@ def build_alerts(
         if prev_date is None:
             if near:
                 lines.append(
-                    f"🆕 <b>{sym}</b> — objava {date_str} (za {days} d)\n"
+                    f"\U0001f195 <b>{sym}</b> \u2014 objava {date_str} (za {days} d)\n"
                     f"   {q_txt}, {hour_txt}{est_txt}"
                 )
                 announced_now = True
@@ -189,8 +258,8 @@ def build_alerts(
         elif prev_date != date_str:
             if near:
                 lines.append(
-                    f"🔄 <b>{sym}</b> — datum POMAKNUT: {prev_date} → <b>{date_str}</b> "
-                    f"(za {days} d)\n   {hour_txt}{est_txt}"
+                    f"\U0001f504 <b>{sym}</b> \u2014 datum POMAKNUT: {prev_date} "
+                    f"\u2192 <b>{date_str}</b> (za {days} d)\n   {hour_txt}{est_txt}"
                 )
                 announced_now = True
             sent = {"new"}
@@ -200,28 +269,21 @@ def build_alerts(
             key = f"d{d}"
             if days == d and key not in sent:
                 if announced_now:
-                    # vec smo ga upravo najavili s brojem dana - ne dupliciraj
                     sent.add(key)
                     continue
                 when = "<b>DANAS</b>" if d == 0 else f"za <b>{d}</b> d"
                 lines.append(
-                    f"⏰ <b>{sym}</b> — earnings {when} ({date_str})\n"
+                    f"\u23f0 <b>{sym}</b> \u2014 earnings {when} ({date_str})\n"
                     f"   {q_txt}, {hour_txt}{est_txt}"
                 )
                 sent.add(key)
 
         new_state[sym] = {"date": date_str, "hour": hour, "sent": sorted(sent)}
 
-    # ocisti tickere kojih vise nema na watchlisti
-    for sym in list(new_state):
-        if sym not in calendar and sym not in state:
-            new_state.pop(sym, None)
-
     return lines, new_state, moved
 
 
 def write_feed(calendar: dict[str, dict], moved: set[str], today: dt.date) -> None:
-    """Objavi JSON koji cita iPhone widget (i web dashboard)."""
     items = []
     for sym in sorted(calendar):
         row = calendar[sym]
@@ -236,11 +298,13 @@ def write_feed(calendar: dict[str, dict], moved: set[str], today: dt.date) -> No
                 "date": row["date"],
                 "days": days,
                 "hour": hour,
-                "hourLabel": {"bmo": "BMO", "amc": "AMC", "dmh": "MID"}.get(hour, "—"),
+                "hourLabel": {"bmo": "BMO", "amc": "AMC", "dmh": "MID"}.get(hour, "\u2014"),
                 "quarter": row.get("quarter"),
                 "year": row.get("year"),
                 "epsEstimate": row.get("epsEstimate"),
                 "revenueEstimate": row.get("revenueEstimate"),
+                "estimated": bool(row.get("estimated")),
+                "basedOn": row.get("basedOn"),
                 "moved": sym in moved,
             }
         )
@@ -254,6 +318,7 @@ def write_feed(calendar: dict[str, dict], moved: set[str], today: dt.date) -> No
                 .replace(microsecond=0)
                 .isoformat(),
                 "count": len(items),
+                "confirmed": sum(1 for i in items if not i["estimated"]),
                 "items": items,
             },
             indent=2,
@@ -282,7 +347,6 @@ def send_telegram(token: str, chat_id: str, text: str) -> None:
 
 
 def chunk(text: str, limit: int = 3800):
-    """Telegram limit je 4096 znakova."""
     buf = ""
     for para in text.split("\n\n"):
         if len(buf) + len(para) + 2 > limit and buf:
@@ -307,11 +371,8 @@ def main() -> None:
     watchlist = load_watchlist()
     print(f"[INFO] {today} | pratim {len(watchlist)} tickera")
 
-    rows = fetch_calendar(finnhub_token, today)
-    print(f"[INFO] Finnhub vratio ukupno {len(rows)} zapisa")
-
-    calendar = index_by_symbol(rows, watchlist)
-    print(f"[INFO] pogodaka na watchlisti: {len(calendar)}")
+    rows = fetch_all(finnhub_token, today)
+    calendar = resolve_next(rows, watchlist, today)
 
     state = load_state()
     alerts, new_state, moved = build_alerts(calendar, state, today)
@@ -319,7 +380,7 @@ def main() -> None:
     if not alerts:
         print("[INFO] Nema novih obavijesti.")
     else:
-        header = f"📊 <b>Earnings alarm</b> — {today.strftime('%d.%m.%Y')}\n"
+        header = f"\U0001f4ca <b>Earnings alarm</b> \u2014 {today.strftime('%d.%m.%Y')}\n"
         message = header + "\n\n".join(alerts)
         if dry_run:
             print("--- DRY RUN ---")
