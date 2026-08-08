@@ -120,7 +120,11 @@ function countdown(d){
 function estimate(i){
   const bits = [];
   if (i.epsEstimate != null) bits.push(`EPS ${i.epsEstimate}`);
-  if (i.revenueEstimate) bits.push(`${(i.revenueEstimate/1e9).toFixed(1)} B$`);
+  if (i.revenueEstimate) bits.push(
+    i.revenueEstimate >= 1e9
+      ? `${(i.revenueEstimate/1e9).toFixed(1)} B$`
+      : `${Math.round(i.revenueEstimate/1e6)} M$`
+  );
   return bits.join(' · ');
 }
 
