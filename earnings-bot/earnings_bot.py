@@ -101,39 +101,53 @@ def save_state(state: dict) -> None:
 # ------------------------------------------------------------- fetching ----
 
 
-def fetch_window(token: str, date_from: dt.date, date_to: dt.date) -> list[dict]:
+def fetch_symbol(
+    token: str, symbol: str, date_from: dt.date, date_to: dt.date
+) -> list[dict]:
+    """Kalendar za JEDAN ticker. Kljucno: upit bez simbola vraca cijelu
+    burzu i Finnhub ga odsijece na 1500 redaka, pa nasi tickeri ispadnu."""
     params = urllib.parse.urlencode(
-        {"from": date_from.isoformat(), "to": date_to.isoformat(), "token": token}
+        {
+            "symbol": symbol,
+            "from": date_from.isoformat(),
+            "to": date_to.isoformat(),
+            "token": token,
+        }
     )
     req = urllib.request.Request(
-        f"{FINNHUB_URL}?{params}", headers={"User-Agent": "earnings-bot/3.0"}
+        f"{FINNHUB_URL}?{params}", headers={"User-Agent": "earnings-bot/4.0"}
     )
     with urllib.request.urlopen(req, timeout=45) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
     return payload.get("earningsCalendar") or []
 
 
-def fetch_all(token: str, today: dt.date) -> list[dict]:
-    """Povijest + buducnost, slozeno iz uzastopnih prozora od 30 dana."""
+def fetch_all(token: str, watchlist: list[str], today: dt.date) -> list[dict]:
+    """Jedan poziv po tickeru, siroki raspon (povijest + buducnost)."""
     rows: list[dict] = []
     start = today - dt.timedelta(days=LOOKBACK_DAYS)
     end = today + dt.timedelta(days=LOOKAHEAD_DAYS)
+    empty: list[str] = []
 
-    cur = start
-    windows = 0
-    while cur <= end:
-        w_end = min(cur + dt.timedelta(days=WINDOW_DAYS - 1), end)
+    for sym in watchlist:
         try:
-            chunk = fetch_window(token, cur, w_end)
+            chunk = fetch_symbol(token, sym, start, end)
             rows.extend(chunk)
-            print(f"[INFO] {cur} .. {w_end}: {len(chunk)} zapisa")
+            if chunk:
+                dates = sorted(r["date"] for r in chunk if r.get("date"))
+                print(f"[INFO] {sym:6} {len(chunk)} zapisa "
+                      f"({dates[0]} .. {dates[-1]})")
+            else:
+                empty.append(sym)
+                print(f"[INFO] {sym:6} 0 zapisa")
         except Exception as exc:
-            print(f"[WARN] prozor {cur} .. {w_end} nije uspio: {exc}")
-        windows += 1
-        cur = w_end + dt.timedelta(days=1)
+            empty.append(sym)
+            print(f"[WARN] {sym:6} nije uspjelo: {exc}")
         time.sleep(CALL_DELAY)
 
-    print(f"[INFO] {windows} prozora, ukupno {len(rows)} zapisa")
+    print(f"[INFO] ukupno {len(rows)} zapisa za {len(watchlist)} tickera")
+    if empty:
+        print(f"[WARN] Finnhub nema nista za: {', '.join(empty)}")
     return rows
 
 
@@ -371,7 +385,7 @@ def main() -> None:
     watchlist = load_watchlist()
     print(f"[INFO] {today} | pratim {len(watchlist)} tickera")
 
-    rows = fetch_all(finnhub_token, today)
+    rows = fetch_all(finnhub_token, watchlist, today)
     calendar = resolve_next(rows, watchlist, today)
 
     state = load_state()
