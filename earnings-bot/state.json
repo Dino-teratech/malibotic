@@ -6,9 +6,44 @@
       "new"
     ]
   },
+  "CRSP": {
+    "date": "2026-08-10",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
   "DELL": {
     "date": "2026-09-03",
     "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "GFF": {
+    "date": "2026-11-17",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "IBM": {
+    "date": "2026-10-21",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "INTC": {
+    "date": "2026-10-21",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "MU": {
+    "date": "2026-09-21",
+    "hour": "amc",
     "sent": [
       "new"
     ]
@@ -22,6 +57,41 @@
   },
   "ORCL": {
     "date": "2026-09-07",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "QUBT": {
+    "date": "2026-11-12",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "RGTI": {
+    "date": "2026-11-09",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "STX": {
+    "date": "2026-10-26",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "TSLA": {
+    "date": "2026-10-20",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "VRT": {
+    "date": "2026-10-20",
     "hour": "",
     "sent": [
       "new"
