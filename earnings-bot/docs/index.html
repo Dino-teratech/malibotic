@@ -108,12 +108,12 @@ fetch('earnings.json?t=' + Date.now())
   .then(feed => {
     updated.textContent = ago(feed.generated);
     if (!feed.items.length){
-      board.innerHTML = '<p class="msg">Nema objava u sljedećih 30 dana.</p>';
+      board.innerHTML = '<p class="msg">Nema objava u sljedećih 120 dana.</p>';
       return;
     }
     board.innerHTML = feed.items.map((i,n) => {
       const [label, cls] = countdown(i.days);
-      const q = i.quarter && i.year ? `Q${i.quarter} ${i.year}` : '';
+      const q = i.quarter && i.year ? `FQ${i.quarter} ${i.year} (fisk.)` : '';
       const est = estimate(i);
       return `<div class="row" style="animation-delay:${n*35}ms">
         <div>
