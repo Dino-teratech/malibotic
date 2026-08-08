@@ -1,146 +1,197 @@
-<!DOCTYPE html>
-<html lang="hr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#0C1017">
-<title>Earnings Board</title>
-<style>
-  :root{
-    --bg:#0C1017; --panel:#141A23; --rule:#232C38;
-    --amber:#F0A500; --paper:#E8E4DA; --slate:#6B7785; --alert:#E5484D;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    background:var(--bg); color:var(--paper);
-    font:15px/1.45 ui-sans-serif,-apple-system,"Segoe UI",sans-serif;
-    padding:max(20px,env(safe-area-inset-top)) 18px 40px;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:640px;margin:0 auto}
+// ============================================================================
+// EARNINGS BOARD — Scriptable widget za iPhone
+// ----------------------------------------------------------------------------
+// 1. Instaliraj Scriptable iz App Storea (besplatno)
+// 2. Otvori Scriptable → "+" → zalijepi ovu skriptu → nazovi je "Earnings"
+// 3. Dolje promijeni FEED_URL u svoj GitHub Pages link
+// 4. Home screen → drži prst → "+" → Scriptable → odaberi velicinu
+// 5. Drzi prst na widgetu → "Edit Widget" → Script: Earnings
+// ============================================================================
 
-  header{
-    display:flex;align-items:baseline;gap:10px;
-    padding-bottom:14px;border-bottom:2px solid var(--amber);margin-bottom:2px;
-  }
-  h1{
-    font-size:13px;font-weight:600;letter-spacing:.22em;color:var(--amber);
-  }
-  .updated{margin-left:auto;font-size:11px;color:var(--slate);
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+const FEED_URL = "https://KORISNIK.github.io/REPO/earnings.json";
 
-  .row{
-    display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;
-    padding:15px 2px;border-bottom:1px solid var(--rule);
-  }
-  .sym{font-weight:700;font-size:19px;letter-spacing:.01em}
-  .est{display:block;font-size:11px;color:var(--slate);font-weight:400;letter-spacing:0;margin-top:3px}
-  .when{font-size:12px;color:var(--slate);text-align:right;
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-  .slot{display:block;font-size:10px;letter-spacing:.12em;margin-top:3px}
+// --- paleta (departure board) -----------------------------------------------
+const C = {
+  bgTop: new Color("#141A23"),
+  bgBottom: new Color("#0C1017"),
+  amber: new Color("#F0A500"),
+  paper: new Color("#E8E4DA"),
+  slate: new Color("#6B7785"),
+  alert: new Color("#E5484D"),
+  soon: new Color("#F0A500"),
+  rule: new Color("#232C38"),
+};
 
-  /* odbrojavanje kao ploca s polascima */
-  .cd{
-    min-width:64px;text-align:center;padding:7px 9px;border-radius:3px;
-    background:var(--panel);border:1px solid var(--rule);
-    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-    font-size:13px;font-weight:600;letter-spacing:.04em;
-  }
-  .cd.soon{color:var(--amber);border-color:#4A3A12}
-  .cd.now{color:var(--alert);border-color:#4A1D1F;background:#1C1114}
+const FAMILY = config.widgetFamily || "medium";
+const ROWS = { small: 3, medium: 4, large: 9 }[FAMILY] || 4;
 
-  .est-tag{
-    display:inline-block;margin-left:7px;padding:1px 5px;border-radius:2px;
-    background:#232C38;color:var(--slate);
-    font-size:9px;letter-spacing:.1em;vertical-align:middle;
-  }
-  .cd.est{color:var(--slate);opacity:.75}
-
-  .moved{
-    display:inline-block;margin-left:7px;padding:1px 5px;border-radius:2px;
-    background:#4A3A12;color:var(--amber);
-    font-size:9px;letter-spacing:.1em;vertical-align:middle;
-  }
-
-  .msg{padding:40px 0;text-align:center;color:var(--slate);font-size:13px}
-  footer{margin-top:26px;font-size:11px;color:var(--slate);text-align:center}
-
-  @media (prefers-reduced-motion:no-preference){
-    .row{animation:in .35s ease both}
-  }
-  @keyframes in{from{opacity:0;transform:translateY(5px)}to{opacity:1}}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <header>
-    <h1>EARNINGS</h1>
-    <span class="updated" id="updated">učitavam…</span>
-  </header>
-  <main id="board"><p class="msg">Učitavam feed…</p></main>
-  <footer>Podaci: Finnhub · osvježava se 5× dnevno<br>PROCJENA = datum još nije potvrđen, izračunat iz prethodne objave</footer>
-</div>
-
-<script>
-const board = document.getElementById('board');
-const updated = document.getElementById('updated');
-
-const pad = n => String(n).padStart(2,'0');
-const fmtDate = iso => { const [y,m,d] = iso.split('-'); return `${pad(d)}.${pad(m)}.`; };
-
-function ago(ts){
-  const m = Math.round((Date.now() - new Date(ts)) / 60000);
-  if (m < 60) return `prije ${m} min`;
-  const h = Math.round(m/60);
-  return h < 48 ? `prije ${h} h` : `prije ${Math.round(h/24)} d`;
+// --- dohvat ------------------------------------------------------------------
+async function loadFeed() {
+  const req = new Request(FEED_URL);
+  req.timeoutInterval = 15;
+  return await req.loadJSON();
 }
 
-function countdown(d){
-  if (d === 0) return ['DANAS','now'];
-  if (d === 1) return ['SUTRA','now'];
-  return [`${d} dana`, d <= 3 ? 'soon' : ''];
+function cacheFile() {
+  const fm = FileManager.local();
+  return fm.joinPath(fm.cacheDirectory(), "earnings-feed.json");
 }
 
-function estimate(i){
-  const bits = [];
-  if (i.epsEstimate != null) bits.push(`EPS ${i.epsEstimate}`);
-  if (i.revenueEstimate) bits.push(`${(i.revenueEstimate/1e9).toFixed(1)} B$`);
-  return bits.join(' · ');
-}
-
-fetch('earnings.json?t=' + Date.now())
-  .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
-  .then(feed => {
-    updated.textContent = ago(feed.generated);
-    if (!feed.items.length){
-      board.innerHTML = '<p class="msg">Nema objava u sljedećih 120 dana.</p>';
-      return;
+async function loadWithCache() {
+  const fm = FileManager.local();
+  const path = cacheFile();
+  try {
+    const data = await loadFeed();
+    fm.writeString(path, JSON.stringify(data));
+    return { data, stale: false };
+  } catch (e) {
+    if (fm.fileExists(path)) {
+      return { data: JSON.parse(fm.readString(path)), stale: true };
     }
-    board.innerHTML = feed.items.map((i,n) => {
-      const [label, cls] = countdown(i.days);
-      const q = i.estimated
-        ? `procjena iz objave ${fmtDate(i.basedOn)}`
-        : (i.quarter && i.year ? `FQ${i.quarter} ${i.year} (fisk.)` : '');
-      const est = estimate(i);
-      return `<div class="row" style="animation-delay:${n*35}ms">
-        <div>
-          <span class="sym">${i.symbol}</span>
-          ${i.moved ? '<span class="moved">POMAK</span>' : ''}
-          ${i.estimated ? '<span class="est-tag">PROCJENA</span>' : ''}
-          ${est || q ? `<span class="est">${[q,est].filter(Boolean).join(' — ')}</span>` : ''}
-        </div>
-        <div class="when">${i.estimated ? '~' : ''}${fmtDate(i.date)}<span class="slot">${i.hourLabel}</span></div>
-        <div class="cd ${i.estimated ? 'est' : cls}">${label}</div>
-      </div>`;
-    }).join('');
-  })
-  .catch(e => {
-    updated.textContent = '—';
-    board.innerHTML = `<p class="msg">Feed nije dostupan (${e.message}).<br>
-      Provjeri je li GitHub Pages uključen i je li workflow već bar jednom odrađen.</p>`;
+    throw e;
+  }
+}
+
+// --- pomocne -----------------------------------------------------------------
+function dayColor(days, estimated) {
+  if (estimated) return C.slate;
+  if (days <= 1) return C.alert;
+  if (days <= 3) return C.soon;
+  return C.paper;
+}
+
+function dayLabel(days) {
+  if (days === 0) return "DANAS";
+  if (days === 1) return "SUTRA";
+  return `${days} d`;
+}
+
+function shortDate(iso) {
+  const [, m, d] = iso.split("-");
+  return `${parseInt(d, 10)}.${parseInt(m, 10)}.`;
+}
+
+function updatedLabel(generated) {
+  const mins = Math.round((Date.now() - new Date(generated).getTime()) / 60000);
+  if (mins < 60) return `${mins}m`;
+  const h = Math.round(mins / 60);
+  return h < 48 ? `${h}h` : `${Math.round(h / 24)}d`;
+}
+
+// --- crtanje -----------------------------------------------------------------
+function buildWidget(feed, stale) {
+  const w = new ListWidget();
+  const grad = new LinearGradient();
+  grad.colors = [C.bgTop, C.bgBottom];
+  grad.locations = [0, 1];
+  w.backgroundGradient = grad;
+  w.setPadding(12, 13, 12, 13);
+  w.url = FEED_URL.replace(/earnings\.json$/, "");
+
+  // zaglavlje
+  const head = w.addStack();
+  head.centerAlignContent();
+
+  const title = head.addText("EARNINGS");
+  title.font = Font.semiboldSystemFont(FAMILY === "small" ? 10 : 11);
+  title.textColor = C.amber;
+  head.addSpacer();
+
+  const meta = head.addText(
+    (stale ? "⚠ " : "") + updatedLabel(feed.generated)
+  );
+  meta.font = Font.systemFont(9);
+  meta.textColor = stale ? C.alert : C.slate;
+
+  w.addSpacer(7);
+
+  const items = (feed.items || []).slice(0, ROWS);
+
+  if (items.length === 0) {
+    w.addSpacer();
+    const empty = w.addText("Nema objava u sljedecih 30 dana.");
+    empty.font = Font.systemFont(11);
+    empty.textColor = C.slate;
+    empty.centerAlignText();
+    w.addSpacer();
+    return w;
+  }
+
+  items.forEach((item, i) => {
+    if (i > 0) {
+      const rule = w.addStack();
+      rule.size = new Size(0, 1);
+      rule.backgroundColor = C.rule;
+      w.addSpacer(5);
+    }
+
+    const row = w.addStack();
+    row.centerAlignContent();
+    row.url = `https://finance.yahoo.com/quote/${item.symbol}`;
+
+    // ticker
+    const sym = row.addText(item.symbol);
+    sym.font = Font.boldSystemFont(FAMILY === "small" ? 12 : 14);
+    sym.textColor = C.paper;
+    sym.lineLimit = 1;
+
+    // oznaka pomaka
+    if (item.moved) {
+      row.addSpacer(4);
+      const mv = row.addText("↻");
+      mv.font = Font.systemFont(10);
+      mv.textColor = C.amber;
+    }
+
+    row.addSpacer();
+
+    // datum + BMO/AMC (preskoci na maloj velicini)
+    if (FAMILY !== "small") {
+      const prefix = item.estimated ? "~" : "";
+      const clock = item.localWindow ? ` ${item.localWindow.split("-")[0]}` : "";
+      const when = row.addText(
+        `${prefix}${shortDate(item.date)} ${item.hourLabel}${clock}`
+      );
+      when.font = Font.systemFont(10);
+      when.textColor = C.slate;
+      row.addSpacer(8);
+    }
+
+    // odbrojavanje
+    const cd = row.addText(dayLabel(item.days));
+    cd.font = Font.semiboldSystemFont(FAMILY === "small" ? 11 : 12);
+    cd.textColor = dayColor(item.days, item.estimated);
+    cd.rightAlignText();
+
+    if (i < items.length - 1) w.addSpacer(5);
   });
-</script>
-</body>
-</html>
+
+  w.addSpacer();
+  return w;
+}
+
+// --- pokretanje ---------------------------------------------------------------
+let widget;
+try {
+  const { data, stale } = await loadWithCache();
+  widget = buildWidget(data, stale);
+} catch (e) {
+  widget = new ListWidget();
+  widget.backgroundColor = C.bgBottom;
+  const t = widget.addText("Feed nedostupan");
+  t.font = Font.semiboldSystemFont(12);
+  t.textColor = C.alert;
+  const s = widget.addText(String(e).slice(0, 80));
+  s.font = Font.systemFont(9);
+  s.textColor = C.slate;
+}
+
+// osvjezi otprilike svaka 2 sata (iOS odlucuje o tocnom trenutku)
+widget.refreshAfterDate = new Date(Date.now() + 2 * 60 * 60 * 1000);
+
+if (config.runsInWidget) {
+  Script.setWidget(widget);
+} else {
+  await widget.presentMedium();
+}
+Script.complete();
