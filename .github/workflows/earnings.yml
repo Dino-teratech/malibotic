@@ -1,1 +1,43 @@
+name: Earnings alert
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 5,10,13,18,21 * * 1-5
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: Run bot
+        env:
+          FINNHUB_TOKEN: ${{ secrets.FINNHUB_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TE.LEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python earnings-bot/earnings_bot.py
+
+      - name: Publish feed
+        run: |
+          mkdir -p docs
+          cp earnings-bot/docs/index.html docs/index.html
+          cp earnings-bot/docs/earnings.json docs/earnings.json
+
+      - name: Commit changes
+        run: |
+          git config user.name earnings-bot
+          git config user.email actions@github.com
+          git add earnings-bot/state.json docs
+          git diff --staged --quiet || git commit -m "update feed"
+          git push
 
