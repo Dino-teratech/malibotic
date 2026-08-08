@@ -8,7 +8,7 @@
 // 5. Drzi prst na widgetu → "Edit Widget" → Script: Earnings
 // ============================================================================
 
-const FEED_URL = "https://KORISNIK.github.io/REPO/earnings.json";
+const FEED_URL = "https://Dino-teratech.github.io/REPO/earnings.json";
 
 // --- paleta (departure board) -----------------------------------------------
 const C = {
