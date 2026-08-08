@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Earnings alert bot  (v3)
+Earnings alert bot  (v4)
 ------------------------
 Za svaki ticker s watchliste odreduje SLJEDECU objavu kvartalnih rezultata:
 
@@ -23,6 +23,7 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+from zoneinfo import ZoneInfo
 
 # ---------------------------------------------------------------- config ----
 
@@ -42,8 +43,6 @@ ANNOUNCE_WITHIN_DAYS = 14
 LOOKBACK_DAYS = 400
 # Koliko unaprijed trazimo potvrdjene datume
 LOOKAHEAD_DAYS = 120
-# Finnhub free tier dopusta ~1 mjesec po pozivu
-WINDOW_DAYS = 30
 # Prosjecni razmak izmedu objava
 QUARTER_DAYS = 91
 # Pauza izmedu poziva (limit je 60/min)
@@ -51,6 +50,22 @@ CALL_DELAY = 0.25
 
 FINNHUB_URL = "https://finnhub.io/api/v1/calendar/earnings"
 TELEGRAM_URL = "https://api.telegram.org/bot{token}/sendMessage"
+
+# Vremenske zone - preracun ide preko New Yorka pa ljetno/zimsko
+# racunanje vremena uvijek ispadne tocno (razlika je 5, 6 ili 7 sati
+# ovisno o tome je li koji kontinent vec presao na zimsko vrijeme).
+TZ_ET = ZoneInfo("America/New_York")
+TZ_LOCAL = ZoneInfo("Europe/Zagreb")
+
+# Tipicni prozori objave, u vremenu americke burze
+HOUR_WINDOWS_ET = {
+    "bmo": (dt.time(6, 30), dt.time(9, 15)),   # prije otvaranja
+    "amc": (dt.time(16, 5), dt.time(16, 45)),  # nakon zatvaranja
+    "dmh": (dt.time(9, 30), dt.time(16, 0)),   # tijekom trgovanja
+}
+
+# Stranica za pracenje objave
+QUOTE_URL = "https://finance.yahoo.com/quote/{symbol}"
 
 HOUR_LABELS = {
     "bmo": "prije otvaranja burze (~13:00 po nasem)",
@@ -154,6 +169,19 @@ def fetch_all(token: str, watchlist: list[str], today: dt.date) -> list[dict]:
 # ------------------------------------------------------------ resolving ----
 
 
+def local_window(date_str: str, hour: str) -> str | None:
+    """Prozor objave po zagrebackom vremenu, npr. '22:05-22:45'."""
+    window = HOUR_WINDOWS_ET.get(hour)
+    if not window:
+        return None
+    day = dt.date.fromisoformat(date_str)
+    parts = []
+    for t in window:
+        et = dt.datetime.combine(day, t, tzinfo=TZ_ET)
+        parts.append(et.astimezone(TZ_LOCAL).strftime("%H:%M"))
+    return f"{parts[0]}-{parts[1]}"
+
+
 def next_weekday(d: dt.date) -> dt.date:
     """Objave su radnim danima - pomakni vikend na ponedjeljak."""
     while d.weekday() >= 5:
@@ -224,7 +252,10 @@ def fmt_estimate(row: dict) -> str:
     if eps is not None:
         bits.append(f"EPS est. {eps}")
     if rev:
-        bits.append(f"prihod est. {rev / 1e9:.2f} B$")
+        bits.append(
+            f"prihod est. {rev / 1e9:.2f} B$" if rev >= 1e9
+            else f"prihod est. {rev / 1e6:.0f} M$"
+        )
     return " \u00b7 ".join(bits)
 
 
@@ -250,10 +281,15 @@ def build_alerts(
 
         hour = (row.get("hour") or "").lower()
         hour_txt = HOUR_LABELS.get(hour, "vrijeme nepoznato")
+        win = local_window(date_str, hour)
+        if win:
+            hour_txt = f"{hour_txt.split(' (')[0]}, oko {win} po nasem"
+        link = QUOTE_URL.format(symbol=sym)
         quarter, year = row.get("quarter"), row.get("year")
         q_txt = f"FQ{quarter} {year} (fisk.)" if quarter and year else ""
         est = fmt_estimate(row)
         est_txt = f"\n   <i>{est}</i>" if est else ""
+        est_txt += f'\n   <a href="{link}">prati objavu \u2192</a>' 
 
         prev = new_state.get(sym, {})
         prev_date = prev.get("date")
@@ -313,6 +349,7 @@ def write_feed(calendar: dict[str, dict], moved: set[str], today: dt.date) -> No
                 "days": days,
                 "hour": hour,
                 "hourLabel": {"bmo": "BMO", "amc": "AMC", "dmh": "MID"}.get(hour, "\u2014"),
+                "localWindow": local_window(row["date"], hour),
                 "quarter": row.get("quarter"),
                 "year": row.get("year"),
                 "epsEstimate": row.get("epsEstimate"),
