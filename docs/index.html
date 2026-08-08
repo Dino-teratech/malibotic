@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0C1017">
+<title>Earnings Board</title>
+<style>
+  :root{
+    --bg:#0C1017; --panel:#141A23; --rule:#232C38;
+    --amber:#F0A500; --paper:#E8E4DA; --slate:#6B7785; --alert:#E5484D;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--paper);
+    font:15px/1.45 ui-sans-serif,-apple-system,"Segoe UI",sans-serif;
+    padding:max(20px,env(safe-area-inset-top)) 18px 40px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto}
+
+  header{
+    display:flex;align-items:baseline;gap:10px;
+    padding-bottom:14px;border-bottom:2px solid var(--amber);margin-bottom:2px;
+  }
+  h1{
+    font-size:13px;font-weight:600;letter-spacing:.22em;color:var(--amber);
+  }
+  .updated{margin-left:auto;font-size:11px;color:var(--slate);
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  .row{
+    display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;
+    padding:15px 2px;border-bottom:1px solid var(--rule);
+  }
+  .sym{font-weight:700;font-size:19px;letter-spacing:.01em}
+  .est{display:block;font-size:11px;color:var(--slate);font-weight:400;letter-spacing:0;margin-top:3px}
+  .when{font-size:12px;color:var(--slate);text-align:right;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  .slot{display:block;font-size:10px;letter-spacing:.12em;margin-top:3px}
+
+  /* odbrojavanje kao ploca s polascima */
+  .cd{
+    min-width:64px;text-align:center;padding:7px 9px;border-radius:3px;
+    background:var(--panel);border:1px solid var(--rule);
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:13px;font-weight:600;letter-spacing:.04em;
+  }
+  .cd.soon{color:var(--amber);border-color:#4A3A12}
+  .cd.now{color:var(--alert);border-color:#4A1D1F;background:#1C1114}
+
+  .moved{
+    display:inline-block;margin-left:7px;padding:1px 5px;border-radius:2px;
+    background:#4A3A12;color:var(--amber);
+    font-size:9px;letter-spacing:.1em;vertical-align:middle;
+  }
+
+  .msg{padding:40px 0;text-align:center;color:var(--slate);font-size:13px}
+  footer{margin-top:26px;font-size:11px;color:var(--slate);text-align:center}
+
+  @media (prefers-reduced-motion:no-preference){
+    .row{animation:in .35s ease both}
+  }
+  @keyframes in{from{opacity:0;transform:translateY(5px)}to{opacity:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>EARNINGS</h1>
+    <span class="updated" id="updated">učitavam…</span>
+  </header>
+  <main id="board"><p class="msg">Učitavam feed…</p></main>
+  <footer>Podaci: Finnhub · osvježava se 5× dnevno</footer>
+</div>
+
+<script>
+const board = document.getElementById('board');
+const updated = document.getElementById('updated');
+
+const pad = n => String(n).padStart(2,'0');
+const fmtDate = iso => { const [y,m,d] = iso.split('-'); return `${pad(d)}.${pad(m)}.`; };
+
+function ago(ts){
+  const m = Math.round((Date.now() - new Date(ts)) / 60000);
+  if (m < 60) return `prije ${m} min`;
+  const h = Math.round(m/60);
+  return h < 48 ? `prije ${h} h` : `prije ${Math.round(h/24)} d`;
+}
+
+function countdown(d){
+  if (d === 0) return ['DANAS','now'];
+  if (d === 1) return ['SUTRA','now'];
+  return [`${d} dana`, d <= 3 ? 'soon' : ''];
+}
+
+function estimate(i){
+  const bits = [];
+  if (i.epsEstimate != null) bits.push(`EPS ${i.epsEstimate}`);
+  if (i.revenueEstimate) bits.push(`${(i.revenueEstimate/1e9).toFixed(1)} B$`);
+  return bits.join(' · ');
+}
+
+fetch('earnings.json?t=' + Date.now())
+  .then(r => { if(!r.ok) throw new Error(r.status); return r.json(); })
+  .then(feed => {
+    updated.textContent = ago(feed.generated);
+    if (!feed.items.length){
+      board.innerHTML = '<p class="msg">Nema objava u sljedećih 30 dana.</p>';
+      return;
+    }
+    board.innerHTML = feed.items.map((i,n) => {
+      const [label, cls] = countdown(i.days);
+      const q = i.quarter && i.year ? `Q${i.quarter} ${i.year}` : '';
+      const est = estimate(i);
+      return `<div class="row" style="animation-delay:${n*35}ms">
+        <div>
+          <span class="sym">${i.symbol}</span>
+          ${i.moved ? '<span class="moved">POMAK</span>' : ''}
+          ${est || q ? `<span class="est">${[q,est].filter(Boolean).join(' — ')}</span>` : ''}
+        </div>
+        <div class="when">${fmtDate(i.date)}<span class="slot">${i.hourLabel}</span></div>
+        <div class="cd ${cls}">${label}</div>
+      </div>`;
+    }).join('');
+  })
+  .catch(e => {
+    updated.textContent = '—';
+    board.innerHTML = `<p class="msg">Feed nije dostupan (${e.message}).<br>
+      Provjeri je li GitHub Pages uključen i je li workflow već bar jednom odrađen.</p>`;
+  });
+</script>
+</body>
+</html>

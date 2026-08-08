@@ -1,0 +1,54 @@
+{
+  "generated": "2026-08-08T09:02:50+00:00",
+  "count": 4,
+  "items": [
+    {
+      "symbol": "NVDA",
+      "date": "2026-08-26",
+      "days": 18,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "quarter": 2,
+      "year": 2027,
+      "epsEstimate": 2.1274,
+      "revenueEstimate": 93606383310,
+      "moved": false
+    },
+    {
+      "symbol": "AVGO",
+      "date": "2026-09-02",
+      "days": 25,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 3.3012,
+      "revenueEstimate": 29947978596,
+      "moved": false
+    },
+    {
+      "symbol": "DELL",
+      "date": "2026-09-03",
+      "days": 26,
+      "hour": "",
+      "hourLabel": "—",
+      "quarter": 2,
+      "year": 2027,
+      "epsEstimate": 4.9897,
+      "revenueEstimate": 45746068740,
+      "moved": false
+    },
+    {
+      "symbol": "ORCL",
+      "date": "2026-09-07",
+      "days": 30,
+      "hour": "",
+      "hourLabel": "—",
+      "quarter": 1,
+      "year": 2027,
+      "epsEstimate": 1.7745,
+      "revenueEstimate": 19522037203,
+      "moved": false
+    }
+  ]
+}

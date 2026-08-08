@@ -1,1 +1,30 @@
-{}
+{
+  "AVGO": {
+    "date": "2026-09-02",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "DELL": {
+    "date": "2026-09-03",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  },
+  "NVDA": {
+    "date": "2026-08-26",
+    "hour": "amc",
+    "sent": [
+      "new"
+    ]
+  },
+  "ORCL": {
+    "date": "2026-09-07",
+    "hour": "",
+    "sent": [
+      "new"
+    ]
+  }
+}
