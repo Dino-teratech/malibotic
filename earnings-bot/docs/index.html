@@ -56,17 +56,14 @@
   .cd.soon{color:var(--amber);border-color:#4A3A12}
   .cd.now{color:var(--alert);border-color:#4A1D1F;background:#1C1114}
 
-  .est-tag{
+  .tag{
     display:inline-block;margin-left:7px;padding:1px 5px;border-radius:2px;
-    background:#232C38;color:var(--slate);
     font-size:9px;letter-spacing:.1em;vertical-align:middle;
   }
-  .cd.est{color:var(--slate);opacity:.75}
-  .unconf{
-    display:inline-block;margin-left:7px;padding:1px 5px;border-radius:2px;
-    background:#3A2A12;color:#C89020;
-    font-size:9px;letter-spacing:.1em;vertical-align:middle;
-  }
+  .tag.off{background:#12331F;color:#5ECC82}
+  .tag.unoff{background:#3A2A12;color:#C89020}
+  .cd.none{color:var(--slate);opacity:.6;font-size:11px;min-width:auto}
+  .row.none{opacity:.55}
 
   .moved{
     display:inline-block;margin-left:7px;padding:1px 5px;border-radius:2px;
@@ -92,8 +89,7 @@
   <main id="board"><p class="msg">Učitavam feed…</p></main>
   <footer>Podaci: Finnhub · osvježava se 5× dnevno<br>
 Vrijeme je okvirni prozor po zagrebačkom<br>
-NEPOTVRĐEN = kompanija nije objavila termin, datum je procjena izvora<br>
-PROCJENA = izračunato iz prethodne objave<br>
+SLUŽBENO = kompanija je potvrdila termin · NESLUŽBENO = datum izvora, provjeri<br>
 Tapni ticker za Yahoo Finance, "vijesti" za praćenje objave</footer>
 </div>
 
@@ -133,26 +129,36 @@ fetch('earnings.json?t=' + Date.now())
   .then(feed => {
     updated.textContent = ago(feed.generated);
     if (!feed.items.length){
-      board.innerHTML = '<p class="msg">Nema objava u sljedećih 120 dana.</p>';
+      board.innerHTML = '<p class="msg">Nema podataka.</p>';
       return;
     }
     board.innerHTML = feed.items.map((i,n) => {
+      const head = `<span class="sym"><a href="https://finance.yahoo.com/quote/${i.symbol}" target="_blank" rel="noopener">${i.symbol}</a></span>
+          <a class="news" href="https://news.google.com/search?q=${i.symbol}%20earnings" target="_blank" rel="noopener">vijesti</a>`;
+
+      if (i.status === 'none'){
+        return `<div class="row none" style="animation-delay:${n*35}ms">
+          <div>${head}</div>
+          <div class="when"></div>
+          <div class="cd none">termin još<br>nije objavljen</div>
+        </div>`;
+      }
+
       const [label, cls] = countdown(i.days);
-      const q = i.estimated
-        ? `procjena iz objave ${fmtDate(i.basedOn)}`
-        : (i.quarter && i.year ? `FQ${i.quarter} ${i.year} (fisk.)` : '');
+      const q = i.quarter && i.year ? `FQ${i.quarter} ${i.year} (fisk.)` : '';
       const est = estimate(i);
+      const tag = i.status === 'official'
+        ? '<span class="tag off">SLUŽBENO</span>'
+        : '<span class="tag unoff">NESLUŽBENO</span>';
       return `<div class="row" style="animation-delay:${n*35}ms">
         <div>
-          <span class="sym"><a href="https://finance.yahoo.com/quote/${i.symbol}" target="_blank" rel="noopener">${i.symbol}</a></span>
-          <a class="news" href="https://news.google.com/search?q=${i.symbol}%20earnings" target="_blank" rel="noopener">vijesti</a>
+          ${head}
           ${i.moved ? '<span class="moved">POMAK</span>' : ''}
-          ${i.estimated ? '<span class="est-tag">PROCJENA</span>' : ''}
-          ${!i.estimated && !i.confirmed ? '<span class="unconf">NEPOTVRĐEN</span>' : ''}
+          ${tag}
           ${est || q ? `<span class="est">${[q,est].filter(Boolean).join(' — ')}</span>` : ''}
         </div>
-        <div class="when">${i.estimated ? '~' : ''}${fmtDate(i.date)}<span class="slot">${i.hourLabel}</span>${i.localWindow ? `<span class="clock">${i.localWindow}</span>` : ''}</div>
-        <div class="cd ${i.estimated ? 'est' : cls}">${label}</div>
+        <div class="when">${fmtDate(i.date)}<span class="slot">${i.hourLabel || ''}</span>${i.localWindow ? `<span class="clock">${i.localWindow}</span>` : ''}</div>
+        <div class="cd ${cls}">${label}</div>
       </div>`;
     }).join('');
   })
