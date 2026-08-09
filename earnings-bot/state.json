@@ -54,6 +54,7 @@
     "date": "2026-08-10",
     "hour": "",
     "sent": [
+      "d1",
       "new"
     ]
   },
@@ -185,7 +186,6 @@
     "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
-    "resultSent": "2026-08-03",
     "sent": [
       "new"
     ]
@@ -204,6 +204,7 @@
     "date": "2026-08-10",
     "hour": "amc",
     "sent": [
+      "d1",
       "new"
     ]
   },

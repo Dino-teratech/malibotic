@@ -1,12 +1,12 @@
 {
-  "generated": "2026-08-08T21:26:28+00:00",
+  "generated": "2026-08-09T05:44:20+00:00",
   "count": 34,
   "confirmed": 32,
   "items": [
     {
       "symbol": "CRSP",
       "date": "2026-08-10",
-      "days": 2,
+      "days": 1,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -22,7 +22,7 @@
     {
       "symbol": "QUBT",
       "date": "2026-08-10",
-      "days": 2,
+      "days": 1,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -38,7 +38,7 @@
     {
       "symbol": "NVDA",
       "date": "2026-08-26",
-      "days": 18,
+      "days": 17,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -54,7 +54,7 @@
     {
       "symbol": "AVGO",
       "date": "2026-09-02",
-      "days": 25,
+      "days": 24,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -70,7 +70,7 @@
     {
       "symbol": "DELL",
       "date": "2026-09-03",
-      "days": 26,
+      "days": 25,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -86,7 +86,7 @@
     {
       "symbol": "ORCL",
       "date": "2026-09-07",
-      "days": 30,
+      "days": 29,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -102,7 +102,7 @@
     {
       "symbol": "MU",
       "date": "2026-09-21",
-      "days": 44,
+      "days": 43,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -118,7 +118,7 @@
     {
       "symbol": "TSLA",
       "date": "2026-10-20",
-      "days": 73,
+      "days": 72,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -134,7 +134,7 @@
     {
       "symbol": "VRT",
       "date": "2026-10-20",
-      "days": 73,
+      "days": 72,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -150,7 +150,7 @@
     {
       "symbol": "IBM",
       "date": "2026-10-21",
-      "days": 74,
+      "days": 73,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -166,7 +166,7 @@
     {
       "symbol": "INTC",
       "date": "2026-10-21",
-      "days": 74,
+      "days": 73,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -182,7 +182,7 @@
     {
       "symbol": "STX",
       "date": "2026-10-26",
-      "days": 79,
+      "days": 78,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -198,7 +198,7 @@
     {
       "symbol": "GOOGL",
       "date": "2026-10-27",
-      "days": 80,
+      "days": 79,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "21:05-21:45",
@@ -214,7 +214,7 @@
     {
       "symbol": "MSFT",
       "date": "2026-10-27",
-      "days": 80,
+      "days": 79,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -230,7 +230,7 @@
     {
       "symbol": "NOW",
       "date": "2026-10-27",
-      "days": 80,
+      "days": 79,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "21:05-21:45",
@@ -246,7 +246,7 @@
     {
       "symbol": "AAPL",
       "date": "2026-10-28",
-      "days": 81,
+      "days": 80,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "21:05-21:45",
@@ -262,7 +262,7 @@
     {
       "symbol": "AMZN",
       "date": "2026-10-28",
-      "days": 81,
+      "days": 80,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "21:05-21:45",
@@ -278,7 +278,7 @@
     {
       "symbol": "MA",
       "date": "2026-10-28",
-      "days": 81,
+      "days": 80,
       "hour": "bmo",
       "hourLabel": "BMO",
       "localWindow": "11:30-14:15",
@@ -294,7 +294,7 @@
     {
       "symbol": "WDC",
       "date": "2026-10-28",
-      "days": 81,
+      "days": 80,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -310,7 +310,7 @@
     {
       "symbol": "ALAB",
       "date": "2026-11-02",
-      "days": 86,
+      "days": 85,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -326,7 +326,7 @@
     {
       "symbol": "AMD",
       "date": "2026-11-02",
-      "days": 86,
+      "days": 85,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -342,7 +342,7 @@
     {
       "symbol": "ETN",
       "date": "2026-11-02",
-      "days": 86,
+      "days": 85,
       "hour": "bmo",
       "hourLabel": "BMO",
       "localWindow": "12:30-15:15",
@@ -358,7 +358,7 @@
     {
       "symbol": "KTOS",
       "date": "2026-11-02",
-      "days": 86,
+      "days": 85,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -374,7 +374,7 @@
     {
       "symbol": "OUST",
       "date": "2026-11-02",
-      "days": 86,
+      "days": 85,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -390,7 +390,7 @@
     {
       "symbol": "PLTR",
       "date": "2026-11-02",
-      "days": 86,
+      "days": 85,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -406,7 +406,7 @@
     {
       "symbol": "QBTS",
       "date": "2026-11-02",
-      "days": 86,
+      "days": 85,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -422,7 +422,7 @@
     {
       "symbol": "CCJ",
       "date": "2026-11-03",
-      "days": 87,
+      "days": 86,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -438,7 +438,7 @@
     {
       "symbol": "IONQ",
       "date": "2026-11-03",
-      "days": 87,
+      "days": 86,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -454,7 +454,7 @@
     {
       "symbol": "SPCX",
       "date": "2026-11-03",
-      "days": 87,
+      "days": 86,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -470,7 +470,7 @@
     {
       "symbol": "SNDK",
       "date": "2026-11-04",
-      "days": 88,
+      "days": 87,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -486,7 +486,7 @@
     {
       "symbol": "TTWO",
       "date": "2026-11-04",
-      "days": 88,
+      "days": 87,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -502,7 +502,7 @@
     {
       "symbol": "RCAT",
       "date": "2026-11-05",
-      "days": 89,
+      "days": 88,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
@@ -518,7 +518,7 @@
     {
       "symbol": "RGTI",
       "date": "2026-11-09",
-      "days": 93,
+      "days": 92,
       "hour": "",
       "hourLabel": "—",
       "localWindow": null,
@@ -534,7 +534,7 @@
     {
       "symbol": "GFF",
       "date": "2026-11-17",
-      "days": 101,
+      "days": 100,
       "hour": "amc",
       "hourLabel": "AMC",
       "localWindow": "22:05-22:45",
