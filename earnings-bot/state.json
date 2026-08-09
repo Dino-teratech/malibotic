@@ -1,277 +1,293 @@
 {
   "AAPL": {
-    "confirmed": true,
     "date": "2026-10-28",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "ALAB": {
-    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
     "resultSent": "2026-08-04",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "AMD": {
-    "confirmed": true,
     "date": "2026-11-02",
     "hour": "amc",
     "resultSent": "2026-08-04",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "AMZN": {
-    "confirmed": true,
     "date": "2026-10-28",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "AVGO": {
-    "confirmed": true,
     "date": "2026-09-02",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "CCJ": {
-    "confirmed": false,
     "date": "2026-11-03",
     "hour": "",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "CRSP": {
-    "confirmed": false,
     "date": "2026-08-10",
     "hour": "",
     "sent": [
       "d1",
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "DELL": {
-    "confirmed": false,
     "date": "2026-09-03",
     "hour": "",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "ETN": {
-    "confirmed": true,
     "date": "2026-11-02",
     "hour": "bmo",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "GFF": {
-    "confirmed": true,
     "date": "2026-11-17",
     "hour": "amc",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "GOOGL": {
-    "confirmed": true,
     "date": "2026-10-27",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "IBM": {
-    "confirmed": true,
     "date": "2026-10-21",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "INTC": {
-    "confirmed": true,
     "date": "2026-10-21",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "IONQ": {
-    "confirmed": false,
     "date": "2026-11-03",
     "hour": "",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "KTOS": {
-    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
     "resultSent": "2026-08-04",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "MA": {
-    "confirmed": true,
     "date": "2026-10-28",
     "hour": "bmo",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "MSFT": {
-    "confirmed": false,
     "date": "2026-10-27",
     "hour": "",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "MU": {
-    "confirmed": true,
     "date": "2026-09-21",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
+  },
+  "NOK": {
+    "date": null,
+    "sent": [],
+    "status": "none"
   },
   "NOW": {
-    "confirmed": true,
     "date": "2026-10-27",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "NVDA": {
-    "confirmed": true,
     "date": "2026-08-26",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "ORCL": {
-    "confirmed": false,
     "date": "2026-09-07",
     "hour": "",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "OUST": {
-    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
     "resultSent": "2026-08-06",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "PLTR": {
-    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "QBTS": {
-    "confirmed": false,
     "date": "2026-11-02",
     "hour": "",
     "resultSent": "2026-08-06",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "QUBT": {
-    "confirmed": true,
     "date": "2026-08-10",
     "hour": "amc",
     "sent": [
       "d1",
       "new"
-    ]
+    ],
+    "status": "official"
   },
   "RCAT": {
-    "resultSent": "2026-08-06"
+    "date": null,
+    "resultSent": "2026-08-06",
+    "sent": [],
+    "status": "none"
   },
   "RGTI": {
-    "confirmed": false,
     "date": "2026-11-09",
     "hour": "",
     "resultSent": "2026-08-06",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "SNDK": {
-    "confirmed": false,
     "date": "2026-11-04",
     "hour": "",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "SPCX": {
-    "resultSent": "2026-08-04"
+    "date": null,
+    "resultSent": "2026-08-04",
+    "sent": [],
+    "status": "none"
   },
   "STX": {
-    "confirmed": false,
     "date": "2026-10-26",
     "hour": "",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "TSLA": {
-    "confirmed": true,
     "date": "2026-10-20",
     "hour": "amc",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "official"
+  },
+  "TSM": {
+    "date": null,
+    "sent": [],
+    "status": "none"
   },
   "TTWO": {
-    "confirmed": false,
     "date": "2026-11-04",
     "hour": "",
     "resultSent": "2026-08-07",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "VRT": {
-    "confirmed": false,
     "date": "2026-10-20",
     "hour": "",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   },
   "WDC": {
-    "confirmed": false,
     "date": "2026-10-28",
     "hour": "",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
-    ]
+    ],
+    "status": "unofficial"
   }
 }
