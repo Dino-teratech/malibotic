@@ -1,7 +1,7 @@
 {
-  "generated": "2026-08-10T18:52:35+00:00",
+  "generated": "2026-08-10T21:38:11+00:00",
   "count": 36,
-  "official": 15,
+  "official": 14,
   "items": [
     {
       "symbol": "CRSP",
@@ -15,20 +15,6 @@
       "year": 2026,
       "epsEstimate": -1.2264,
       "revenueEstimate": 6925075,
-      "moved": false
-    },
-    {
-      "symbol": "QUBT",
-      "status": "official",
-      "date": "2026-08-10",
-      "days": 0,
-      "hour": "amc",
-      "hourLabel": "AMC",
-      "localWindow": "22:05-22:45",
-      "quarter": 2,
-      "year": 2026,
-      "epsEstimate": -0.0388,
-      "revenueEstimate": 5254530,
       "moved": false
     },
     {
@@ -436,6 +422,20 @@
       "epsEstimate": -0.0532,
       "revenueEstimate": 3834741,
       "moved": false
+    },
+    {
+      "symbol": "QUBT",
+      "status": "unofficial",
+      "date": "2026-11-12",
+      "days": 94,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": -0.034,
+      "revenueEstimate": 6410190,
+      "moved": true
     },
     {
       "symbol": "GFF",

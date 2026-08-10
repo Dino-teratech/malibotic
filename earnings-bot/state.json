@@ -206,14 +206,20 @@
     "status": "unofficial"
   },
   "QUBT": {
-    "date": "2026-08-10",
-    "hour": "amc",
+    "date": "2026-11-12",
+    "hour": "",
+    "movedAt": "2026-08-10",
+    "resultSent": "2026-08-10",
     "sent": [
-      "d0",
-      "d1",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": 9.18,
+      "day": 1,
+      "from": "2026-08-10",
+      "lastDay": "2026-08-10"
+    }
   },
   "RCAT": {
     "date": null,
