@@ -50,11 +50,10 @@
     "status": "unofficial"
   },
   "CRSP": {
-    "date": "2026-08-10",
+    "date": "2026-11-09",
     "hour": "",
+    "movedAt": "2026-08-11",
     "sent": [
-      "d0",
-      "d1",
       "new"
     ],
     "status": "unofficial"
