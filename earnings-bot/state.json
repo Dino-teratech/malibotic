@@ -212,13 +212,7 @@
     "sent": [
       "new"
     ],
-    "status": "unofficial",
-    "track": {
-      "base": 9.18,
-      "day": 4,
-      "from": "2026-08-10",
-      "lastDay": "2026-08-13"
-    }
+    "status": "unofficial"
   },
   "RCAT": {
     "date": null,
