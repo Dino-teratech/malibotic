@@ -171,8 +171,9 @@
     "status": "official"
   },
   "ORCL": {
-    "date": "2026-09-07",
+    "date": "2026-09-14",
     "hour": "",
+    "movedAt": "2026-08-18",
     "sent": [
       "new"
     ],
