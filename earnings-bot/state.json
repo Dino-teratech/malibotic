@@ -166,10 +166,17 @@
     "date": "2026-11-17",
     "hour": "amc",
     "movedAt": "2026-08-27",
+    "resultSent": "2026-08-26",
     "sent": [
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-08-26",
+      "lastDay": null
+    }
   },
   "ORCL": {
     "date": "2026-09-14",
