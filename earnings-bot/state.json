@@ -59,12 +59,13 @@
     "status": "unofficial"
   },
   "DELL": {
-    "date": "2026-09-03",
-    "hour": "",
+    "date": "2026-09-01",
+    "hour": "amc",
+    "movedAt": "2026-08-28",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "ETN": {
     "date": "2026-11-02",
@@ -179,9 +180,9 @@
     }
   },
   "ORCL": {
-    "date": "2026-09-14",
+    "date": "2026-09-07",
     "hour": "",
-    "movedAt": "2026-08-18",
+    "movedAt": "2026-08-28",
     "sent": [
       "new"
     ],
@@ -224,10 +225,13 @@
     "status": "unofficial"
   },
   "RCAT": {
-    "date": null,
+    "date": "2026-11-11",
+    "hour": "",
     "resultSent": "2026-08-06",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "RGTI": {
     "date": "2026-11-09",
