@@ -1,9 +1,11 @@
 {
   "AAPL": {
-    "date": null,
+    "date": "2026-10-28",
     "hour": "amc",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "ALAB": {
     "date": "2026-11-02",
@@ -24,49 +26,63 @@
     "status": "official"
   },
   "AMZN": {
-    "date": null,
+    "date": "2026-10-28",
     "hour": "amc",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "AVGO": {
-    "date": null,
+    "date": "2026-09-02",
     "hour": "amc",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "CCJ": {
-    "date": null,
+    "date": "2026-11-03",
     "hour": "",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "CRSP": {
-    "date": null,
+    "date": "2026-11-09",
     "hour": "",
     "movedAt": "2026-08-11",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "DELL": {
-    "date": null,
+    "date": "2026-09-01",
     "hour": "amc",
     "movedAt": "2026-08-28",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "ETN": {
-    "date": null,
+    "date": "2026-11-02",
     "hour": "bmo",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "GFF": {
-    "date": null,
+    "date": "2026-11-17",
     "hour": "amc",
     "resultSent": "2026-08-05",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "GOOGL": {
     "date": "2026-10-27",
@@ -77,16 +93,20 @@
     "status": "official"
   },
   "IBM": {
-    "date": null,
+    "date": "2026-10-21",
     "hour": "amc",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "INTC": {
-    "date": null,
+    "date": "2026-10-21",
     "hour": "amc",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "IONQ": {
     "date": "2026-11-03",
@@ -98,23 +118,29 @@
     "status": "unofficial"
   },
   "KTOS": {
-    "date": null,
+    "date": "2026-11-02",
     "hour": "",
     "resultSent": "2026-08-04",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "MA": {
-    "date": null,
+    "date": "2026-10-28",
     "hour": "bmo",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "official"
   },
   "MSFT": {
-    "date": null,
+    "date": "2026-10-27",
     "hour": "",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "MU": {
     "date": "2026-09-21",
@@ -138,12 +164,14 @@
     "status": "official"
   },
   "NVDA": {
-    "date": null,
+    "date": "2026-11-17",
     "hour": "amc",
     "movedAt": "2026-08-27",
     "resultSent": "2026-08-26",
-    "sent": [],
-    "status": "none",
+    "sent": [
+      "new"
+    ],
+    "status": "official",
     "track": {
       "base": null,
       "day": 0,
@@ -161,11 +189,13 @@
     "status": "unofficial"
   },
   "OUST": {
-    "date": null,
+    "date": "2026-11-02",
     "hour": "",
     "resultSent": "2026-08-06",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "PLTR": {
     "date": "2026-11-02",
@@ -176,11 +206,13 @@
     "status": "unofficial"
   },
   "QBTS": {
-    "date": null,
+    "date": "2026-11-02",
     "hour": "",
     "resultSent": "2026-08-06",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "QUBT": {
     "date": "2026-11-12",
@@ -193,11 +225,13 @@
     "status": "unofficial"
   },
   "RCAT": {
-    "date": null,
+    "date": "2026-11-11",
     "hour": "",
     "resultSent": "2026-08-06",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "RGTI": {
     "date": "2026-11-09",
@@ -245,17 +279,21 @@
     "status": "none"
   },
   "TTWO": {
-    "date": null,
+    "date": "2026-11-04",
     "hour": "",
     "resultSent": "2026-08-07",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "VRT": {
-    "date": null,
+    "date": "2026-10-20",
     "hour": "",
-    "sent": [],
-    "status": "none"
+    "sent": [
+      "new"
+    ],
+    "status": "unofficial"
   },
   "WDC": {
     "date": "2026-10-28",

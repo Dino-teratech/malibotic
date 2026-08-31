@@ -1,8 +1,36 @@
 {
-  "generated": "2026-08-31T11:19:56+00:00",
+  "generated": "2026-08-31T19:22:20+00:00",
   "count": 36,
-  "official": 5,
+  "official": 15,
   "items": [
+    {
+      "symbol": "DELL",
+      "status": "official",
+      "date": "2026-09-01",
+      "days": 1,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 2,
+      "year": 2027,
+      "epsEstimate": 5.012,
+      "revenueEstimate": 45852452985,
+      "moved": true
+    },
+    {
+      "symbol": "AVGO",
+      "status": "official",
+      "date": "2026-09-02",
+      "days": 2,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 3.3013,
+      "revenueEstimate": 29949335931,
+      "moved": false
+    },
     {
       "symbol": "ORCL",
       "status": "unofficial",
@@ -46,6 +74,48 @@
       "moved": false
     },
     {
+      "symbol": "VRT",
+      "status": "unofficial",
+      "date": "2026-10-20",
+      "days": 50,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 1.8458,
+      "revenueEstimate": 3797862499,
+      "moved": false
+    },
+    {
+      "symbol": "IBM",
+      "status": "official",
+      "date": "2026-10-21",
+      "days": 51,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 2.9133,
+      "revenueEstimate": 16982149090,
+      "moved": false
+    },
+    {
+      "symbol": "INTC",
+      "status": "official",
+      "date": "2026-10-21",
+      "days": 51,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 0.3918,
+      "revenueEstimate": 16720929186,
+      "moved": false
+    },
+    {
       "symbol": "STX",
       "status": "unofficial",
       "date": "2026-10-26",
@@ -74,6 +144,20 @@
       "moved": false
     },
     {
+      "symbol": "MSFT",
+      "status": "unofficial",
+      "date": "2026-10-27",
+      "days": 57,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 1,
+      "year": 2027,
+      "epsEstimate": 4.8236,
+      "revenueEstimate": 92462855710,
+      "moved": false
+    },
+    {
       "symbol": "NOW",
       "status": "official",
       "date": "2026-10-27",
@@ -85,6 +169,48 @@
       "year": 2026,
       "epsEstimate": 1.0354,
       "revenueEstimate": 4135261876,
+      "moved": false
+    },
+    {
+      "symbol": "AAPL",
+      "status": "official",
+      "date": "2026-10-28",
+      "days": 58,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "21:05-21:45",
+      "quarter": 4,
+      "year": 2026,
+      "epsEstimate": 2.0202,
+      "revenueEstimate": 115064400597,
+      "moved": false
+    },
+    {
+      "symbol": "AMZN",
+      "status": "official",
+      "date": "2026-10-28",
+      "days": 58,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "21:05-21:45",
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 1.9928,
+      "revenueEstimate": 206371169979,
+      "moved": false
+    },
+    {
+      "symbol": "MA",
+      "status": "official",
+      "date": "2026-10-28",
+      "days": 58,
+      "hour": "bmo",
+      "hourLabel": "BMO",
+      "localWindow": "11:30-14:15",
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 5.3041,
+      "revenueEstimate": 9929432852,
       "moved": false
     },
     {
@@ -130,6 +256,48 @@
       "moved": false
     },
     {
+      "symbol": "ETN",
+      "status": "official",
+      "date": "2026-11-02",
+      "days": 63,
+      "hour": "bmo",
+      "hourLabel": "BMO",
+      "localWindow": "12:30-15:15",
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 3.5483,
+      "revenueEstimate": 8526011495,
+      "moved": false
+    },
+    {
+      "symbol": "KTOS",
+      "status": "unofficial",
+      "date": "2026-11-02",
+      "days": 63,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 0.2135,
+      "revenueEstimate": 478819018,
+      "moved": false
+    },
+    {
+      "symbol": "OUST",
+      "status": "unofficial",
+      "date": "2026-11-02",
+      "days": 63,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": -0.2584,
+      "revenueEstimate": 57392003,
+      "moved": false
+    },
+    {
       "symbol": "PLTR",
       "status": "unofficial",
       "date": "2026-11-02",
@@ -141,6 +309,34 @@
       "year": 2026,
       "epsEstimate": 0.4277,
       "revenueEstimate": 2220416029,
+      "moved": false
+    },
+    {
+      "symbol": "QBTS",
+      "status": "unofficial",
+      "date": "2026-11-02",
+      "days": 63,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": -0.1033,
+      "revenueEstimate": 4420170,
+      "moved": false
+    },
+    {
+      "symbol": "CCJ",
+      "status": "unofficial",
+      "date": "2026-11-03",
+      "days": 64,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 0.3688,
+      "revenueEstimate": 696393990,
       "moved": false
     },
     {
@@ -172,6 +368,34 @@
       "moved": false
     },
     {
+      "symbol": "TTWO",
+      "status": "unofficial",
+      "date": "2026-11-04",
+      "days": 65,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 2,
+      "year": 2027,
+      "epsEstimate": 0.9578,
+      "revenueEstimate": 1582114594,
+      "moved": false
+    },
+    {
+      "symbol": "CRSP",
+      "status": "unofficial",
+      "date": "2026-11-09",
+      "days": 70,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": -1.0542,
+      "revenueEstimate": 9661083,
+      "moved": false
+    },
+    {
       "symbol": "RGTI",
       "status": "unofficial",
       "date": "2026-11-09",
@@ -183,6 +407,20 @@
       "year": 2026,
       "epsEstimate": -0.0523,
       "revenueEstimate": 3749438,
+      "moved": false
+    },
+    {
+      "symbol": "RCAT",
+      "status": "unofficial",
+      "date": "2026-11-11",
+      "days": 72,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": -0.2159,
+      "revenueEstimate": 42669996,
       "moved": false
     },
     {
@@ -200,160 +438,35 @@
       "moved": false
     },
     {
-      "symbol": "AAPL",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "AMZN",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "AVGO",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "CCJ",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "CRSP",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "DELL",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "ETN",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
       "symbol": "GFF",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "IBM",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "INTC",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "KTOS",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "MA",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "MSFT",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "NOK",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
+      "status": "official",
+      "date": "2026-11-17",
+      "days": 78,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 4,
+      "year": 2026,
+      "epsEstimate": 1.6146,
+      "revenueEstimate": 487931000,
       "moved": false
     },
     {
       "symbol": "NVDA",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
+      "status": "official",
+      "date": "2026-11-17",
+      "days": 78,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 3,
+      "year": 2027,
+      "epsEstimate": 2.4659,
+      "revenueEstimate": 108129157692,
+      "moved": true
     },
     {
-      "symbol": "OUST",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "QBTS",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "RCAT",
+      "symbol": "NOK",
       "status": "none",
       "date": null,
       "days": null,
@@ -372,24 +485,6 @@
     },
     {
       "symbol": "TSM",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "TTWO",
-      "status": "none",
-      "date": null,
-      "days": null,
-      "hourLabel": null,
-      "localWindow": null,
-      "moved": false
-    },
-    {
-      "symbol": "VRT",
       "status": "none",
       "date": null,
       "days": null,
