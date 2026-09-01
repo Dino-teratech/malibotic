@@ -174,10 +174,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 220.78,
+      "day": 1,
       "from": "2026-08-26",
-      "lastDay": null
+      "lastDay": "2026-09-01"
     }
   },
   "ORCL": {
