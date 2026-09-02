@@ -34,13 +34,20 @@
     "status": "official"
   },
   "AVGO": {
-    "date": "2026-09-02",
+    "date": "2026-12-09",
     "hour": "amc",
+    "movedAt": "2026-09-02",
+    "resultSent": "2026-09-02",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": 369.68,
+      "day": 1,
+      "from": "2026-09-02",
+      "lastDay": "2026-09-02"
+    }
   },
   "CCJ": {
     "date": "2026-11-03",
@@ -69,10 +76,10 @@
     ],
     "status": "unofficial",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 425,
+      "day": 1,
       "from": "2026-09-01",
-      "lastDay": null
+      "lastDay": "2026-09-02"
     }
   },
   "ETN": {
@@ -183,9 +190,9 @@
     "status": "official",
     "track": {
       "base": 220.78,
-      "day": 1,
+      "day": 2,
       "from": "2026-08-26",
-      "lastDay": "2026-09-01"
+      "lastDay": "2026-09-02"
     }
   },
   "ORCL": {
