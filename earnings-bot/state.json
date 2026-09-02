@@ -37,6 +37,7 @@
     "date": "2026-09-02",
     "hour": "amc",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -59,14 +60,13 @@
     "status": "unofficial"
   },
   "DELL": {
-    "date": "2026-09-01",
-    "hour": "amc",
-    "movedAt": "2026-08-28",
+    "date": "2026-11-23",
+    "hour": "",
+    "movedAt": "2026-09-02",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial"
   },
   "ETN": {
     "date": "2026-11-02",
@@ -144,8 +144,9 @@
     "status": "unofficial"
   },
   "MU": {
-    "date": "2026-09-21",
+    "date": "2026-09-30",
     "hour": "amc",
+    "movedAt": "2026-09-02",
     "sent": [
       "new"
     ],
