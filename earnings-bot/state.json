@@ -63,10 +63,17 @@
     "date": "2026-11-23",
     "hour": "",
     "movedAt": "2026-09-02",
+    "resultSent": "2026-09-01",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-09-01",
+      "lastDay": null
+    }
   },
   "ETN": {
     "date": "2026-11-02",
