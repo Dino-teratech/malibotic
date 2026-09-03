@@ -34,14 +34,12 @@
     "status": "official"
   },
   "AVGO": {
-    "date": "2026-12-09",
+    "date": null,
     "hour": "amc",
     "movedAt": "2026-09-02",
     "resultSent": "2026-09-02",
-    "sent": [
-      "new"
-    ],
-    "status": "official",
+    "sent": [],
+    "status": "none",
     "track": {
       "base": 369.68,
       "day": 1,
@@ -150,21 +148,17 @@
     "status": "official"
   },
   "MSFT": {
-    "date": "2026-10-27",
+    "date": null,
     "hour": "",
-    "sent": [
-      "new"
-    ],
-    "status": "unofficial"
+    "sent": [],
+    "status": "none"
   },
   "MU": {
-    "date": "2026-09-30",
+    "date": null,
     "hour": "amc",
     "movedAt": "2026-09-02",
-    "sent": [
-      "new"
-    ],
-    "status": "official"
+    "sent": [],
+    "status": "none"
   },
   "NOK": {
     "date": null,
@@ -190,9 +184,9 @@
     "status": "official",
     "track": {
       "base": 220.78,
-      "day": 2,
+      "day": 3,
       "from": "2026-08-26",
-      "lastDay": "2026-09-02"
+      "lastDay": "2026-09-03"
     }
   },
   "ORCL": {
@@ -231,14 +225,12 @@
     "status": "unofficial"
   },
   "QUBT": {
-    "date": "2026-11-12",
+    "date": null,
     "hour": "",
     "movedAt": "2026-08-10",
     "resultSent": "2026-08-10",
-    "sent": [
-      "new"
-    ],
-    "status": "unofficial"
+    "sent": [],
+    "status": "none"
   },
   "RCAT": {
     "date": "2026-11-11",
