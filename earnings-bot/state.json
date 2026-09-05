@@ -197,12 +197,12 @@
   },
   "ORCL": {
     "date": "2026-09-10",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-09-04",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "OUST": {
     "date": "2026-11-02",
