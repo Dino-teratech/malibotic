@@ -44,9 +44,9 @@
     "status": "official",
     "track": {
       "base": 369.68,
-      "day": 3,
+      "day": 4,
       "from": "2026-09-02",
-      "lastDay": "2026-09-07"
+      "lastDay": "2026-09-08"
     }
   },
   "CCJ": {
@@ -77,9 +77,9 @@
     "status": "unofficial",
     "track": {
       "base": 425,
-      "day": 3,
+      "day": 4,
       "from": "2026-09-01",
-      "lastDay": "2026-09-07"
+      "lastDay": "2026-09-08"
     }
   },
   "ETN": {
