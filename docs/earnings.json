@@ -1,22 +1,8 @@
 {
-  "generated": "2026-09-10T20:23:20+00:00",
+  "generated": "2026-09-10T22:55:36+00:00",
   "count": 36,
-  "official": 15,
+  "official": 14,
   "items": [
-    {
-      "symbol": "ORCL",
-      "status": "official",
-      "date": "2026-09-10",
-      "days": 0,
-      "hour": "amc",
-      "hourLabel": "AMC",
-      "localWindow": "22:05-22:45",
-      "quarter": 1,
-      "year": 2027,
-      "epsEstimate": 1.7766,
-      "revenueEstimate": 19527219180,
-      "moved": false
-    },
     {
       "symbol": "MU",
       "status": "official",
@@ -450,6 +436,20 @@
       "epsEstimate": 4.5763,
       "revenueEstimate": 42255241762,
       "moved": false
+    },
+    {
+      "symbol": "ORCL",
+      "status": "unofficial",
+      "date": "2026-12-08",
+      "days": 89,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 2,
+      "year": 2027,
+      "epsEstimate": 1.9334,
+      "revenueEstimate": 21641922817,
+      "moved": true
     },
     {
       "symbol": "AVGO",

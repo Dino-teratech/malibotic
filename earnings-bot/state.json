@@ -178,14 +178,20 @@
     "status": "official"
   },
   "ORCL": {
-    "date": "2026-09-10",
-    "hour": "amc",
-    "movedAt": "2026-09-04",
+    "date": "2026-12-08",
+    "hour": "",
+    "movedAt": "2026-09-10",
+    "resultSent": "2026-09-10",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": 161.63,
+      "day": 1,
+      "from": "2026-09-10",
+      "lastDay": "2026-09-10"
+    }
   },
   "OUST": {
     "date": "2026-11-02",
