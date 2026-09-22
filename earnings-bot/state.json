@@ -104,8 +104,9 @@
     "status": "official"
   },
   "INTC": {
-    "date": "2026-10-21",
+    "date": "2026-10-22",
     "hour": "amc",
+    "movedAt": "2026-09-22",
     "sent": [
       "new"
     ],
@@ -130,8 +131,9 @@
     "status": "unofficial"
   },
   "MA": {
-    "date": "2026-10-28",
+    "date": "2026-10-22",
     "hour": "bmo",
+    "movedAt": "2026-09-22",
     "sent": [
       "new"
     ],
@@ -295,8 +297,9 @@
     "status": "unofficial"
   },
   "WDC": {
-    "date": "2026-10-28",
+    "date": "2026-10-22",
     "hour": "",
+    "movedAt": "2026-09-22",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
