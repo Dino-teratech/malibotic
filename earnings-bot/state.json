@@ -104,9 +104,9 @@
     "status": "official"
   },
   "INTC": {
-    "date": "2026-10-22",
+    "date": "2026-10-21",
     "hour": "amc",
-    "movedAt": "2026-09-22",
+    "movedAt": "2026-09-23",
     "sent": [
       "new"
     ],
@@ -297,9 +297,9 @@
     "status": "unofficial"
   },
   "WDC": {
-    "date": "2026-10-22",
+    "date": "2026-10-28",
     "hour": "",
-    "movedAt": "2026-09-22",
+    "movedAt": "2026-09-23",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
