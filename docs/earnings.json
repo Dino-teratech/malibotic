@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-01T00:19:38+00:00",
+  "generated": "2026-10-01T11:20:12+00:00",
   "count": 36,
   "official": 14,
   "items": [
@@ -72,6 +72,20 @@
       "epsEstimate": 5.3041,
       "revenueEstimate": 9929432852,
       "moved": false
+    },
+    {
+      "symbol": "WDC",
+      "status": "unofficial",
+      "date": "2026-10-22",
+      "days": 21,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 1,
+      "year": 2027,
+      "epsEstimate": 4.0949,
+      "revenueEstimate": 4162115363,
+      "moved": true
     },
     {
       "symbol": "GOOGL",
@@ -158,17 +172,17 @@
       "moved": true
     },
     {
-      "symbol": "WDC",
+      "symbol": "KTOS",
       "status": "unofficial",
-      "date": "2026-10-28",
-      "days": 27,
+      "date": "2026-10-29",
+      "days": 28,
       "hour": "",
       "hourLabel": null,
       "localWindow": null,
-      "quarter": 1,
-      "year": 2027,
-      "epsEstimate": 4.0949,
-      "revenueEstimate": 4162115363,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 0.2094,
+      "revenueEstimate": 479225294,
       "moved": true
     },
     {
@@ -240,20 +254,6 @@
       "epsEstimate": 3.5612,
       "revenueEstimate": 8536788215,
       "moved": false
-    },
-    {
-      "symbol": "KTOS",
-      "status": "unofficial",
-      "date": "2026-11-02",
-      "days": 32,
-      "hour": "",
-      "hourLabel": null,
-      "localWindow": null,
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": 0.2094,
-      "revenueEstimate": 479225294,
-      "moved": true
     },
     {
       "symbol": "OUST",
