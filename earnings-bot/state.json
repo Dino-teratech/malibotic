@@ -1,8 +1,8 @@
 {
   "AAPL": {
-    "date": "2026-10-29",
+    "date": "2026-10-28",
     "hour": "amc",
-    "movedAt": "2026-09-29",
+    "movedAt": "2026-10-01",
     "sent": [
       "new"
     ],
@@ -27,9 +27,9 @@
     "status": "official"
   },
   "AMZN": {
-    "date": "2026-10-29",
+    "date": "2026-10-28",
     "hour": "amc",
-    "movedAt": "2026-09-29",
+    "movedAt": "2026-10-01",
     "sent": [
       "new"
     ],
@@ -107,9 +107,9 @@
     "status": "official"
   },
   "INTC": {
-    "date": "2026-10-22",
+    "date": "2026-10-21",
     "hour": "amc",
-    "movedAt": "2026-09-24",
+    "movedAt": "2026-10-01",
     "sent": [
       "new"
     ],
@@ -125,9 +125,9 @@
     "status": "unofficial"
   },
   "KTOS": {
-    "date": "2026-10-29",
+    "date": "2026-11-02",
     "hour": "",
-    "movedAt": "2026-09-29",
+    "movedAt": "2026-10-01",
     "resultSent": "2026-08-04",
     "sent": [
       "new"
@@ -152,14 +152,20 @@
     "status": "unofficial"
   },
   "MU": {
-    "date": "2026-09-30",
+    "date": "2026-12-15",
     "hour": "amc",
-    "movedAt": "2026-09-02",
+    "movedAt": "2026-10-01",
+    "resultSent": "2026-09-30",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-09-30",
+      "lastDay": null
+    }
   },
   "NOK": {
     "date": null,
@@ -167,9 +173,9 @@
     "status": "none"
   },
   "NOW": {
-    "date": "2026-10-28",
+    "date": "2026-10-27",
     "hour": "amc",
-    "movedAt": "2026-09-29",
+    "movedAt": "2026-10-01",
     "sent": [
       "new"
     ],
@@ -250,8 +256,9 @@
     "status": "unofficial"
   },
   "SNDK": {
-    "date": "2026-11-04",
+    "date": "2026-10-29",
     "hour": "",
+    "movedAt": "2026-10-01",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
@@ -296,18 +303,18 @@
     "status": "unofficial"
   },
   "VRT": {
-    "date": "2026-10-28",
+    "date": "2026-10-20",
     "hour": "",
-    "movedAt": "2026-09-29",
+    "movedAt": "2026-10-01",
     "sent": [
       "new"
     ],
     "status": "unofficial"
   },
   "WDC": {
-    "date": "2026-10-22",
+    "date": "2026-10-28",
     "hour": "",
-    "movedAt": "2026-09-24",
+    "movedAt": "2026-10-01",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
