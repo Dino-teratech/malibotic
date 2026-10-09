@@ -1,16 +1,17 @@
 {
   "AAPL": {
-    "date": "2026-10-29",
+    "date": "2026-11-02",
     "hour": "amc",
-    "movedAt": "2026-10-02",
+    "movedAt": "2026-10-09",
     "sent": [
       "new"
     ],
     "status": "official"
   },
   "ALAB": {
-    "date": "2026-11-02",
+    "date": "2026-11-03",
     "hour": "",
+    "movedAt": "2026-10-09",
     "resultSent": "2026-08-04",
     "sent": [
       "new"
@@ -109,9 +110,9 @@
     "status": "official"
   },
   "INTC": {
-    "date": "2026-10-22",
+    "date": "2026-10-29",
     "hour": "amc",
-    "movedAt": "2026-10-02",
+    "movedAt": "2026-10-09",
     "sent": [
       "new"
     ],
