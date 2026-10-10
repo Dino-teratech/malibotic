@@ -147,8 +147,9 @@
     "status": "official"
   },
   "MSFT": {
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "hour": "",
+    "movedAt": "2026-10-10",
     "sent": [
       "new"
     ],
