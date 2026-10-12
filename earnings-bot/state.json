@@ -165,10 +165,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 1029,
+      "day": 1,
       "from": "2026-09-30",
-      "lastDay": null
+      "lastDay": "2026-10-12"
     }
   },
   "NOK": {
