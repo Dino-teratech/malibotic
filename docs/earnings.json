@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14T00:06:57+00:00",
+  "generated": "2026-10-14T09:54:29+00:00",
   "count": 36,
   "official": 14,
   "items": [
@@ -60,6 +60,20 @@
       "moved": false
     },
     {
+      "symbol": "STX",
+      "status": "unofficial",
+      "date": "2026-10-27",
+      "days": 13,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 1,
+      "year": 2027,
+      "epsEstimate": 7.4374,
+      "revenueEstimate": 4159155760,
+      "moved": true
+    },
+    {
       "symbol": "MSFT",
       "status": "unofficial",
       "date": "2026-10-28",
@@ -85,20 +99,6 @@
       "year": 2026,
       "epsEstimate": 1.0354,
       "revenueEstimate": 4135261876,
-      "moved": false
-    },
-    {
-      "symbol": "STX",
-      "status": "unofficial",
-      "date": "2026-10-28",
-      "days": 14,
-      "hour": "",
-      "hourLabel": null,
-      "localWindow": null,
-      "quarter": 1,
-      "year": 2027,
-      "epsEstimate": 7.4374,
-      "revenueEstimate": 4159155760,
       "moved": false
     },
     {
