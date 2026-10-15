@@ -168,9 +168,9 @@
     "status": "official",
     "track": {
       "base": 1029,
-      "day": 2,
+      "day": 3,
       "from": "2026-09-30",
-      "lastDay": "2026-10-14"
+      "lastDay": "2026-10-15"
     }
   },
   "NOK": {
@@ -325,13 +325,13 @@
   },
   "WDC": {
     "date": "2026-10-22",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-01",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "__meta": {
     "healthWarnedOn": "2026-08-31"

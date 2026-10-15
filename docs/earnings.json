@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-15T20:54:08+00:00",
+  "generated": "2026-10-15T23:31:38+00:00",
   "count": 36,
-  "official": 14,
+  "official": 15,
   "items": [
     {
       "symbol": "TSLA",
@@ -33,12 +33,12 @@
     },
     {
       "symbol": "WDC",
-      "status": "unofficial",
+      "status": "official",
       "date": "2026-10-22",
       "days": 7,
-      "hour": "",
-      "hourLabel": null,
-      "localWindow": null,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
       "quarter": 1,
       "year": 2027,
       "epsEstimate": 4.1122,
