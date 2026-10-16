@@ -292,8 +292,9 @@
     "status": "unofficial"
   },
   "TSLA": {
-    "date": "2026-10-20",
+    "date": "2026-10-21",
     "hour": "amc",
+    "movedAt": "2026-10-16",
     "sent": [
       "new"
     ],
