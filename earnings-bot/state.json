@@ -274,8 +274,9 @@
     "status": "unofficial"
   },
   "SPCX": {
-    "date": "2026-11-05",
+    "date": "2026-10-20",
     "hour": "",
+    "movedAt": "2026-10-17",
     "resultSent": "2026-08-04",
     "sent": [
       "new"

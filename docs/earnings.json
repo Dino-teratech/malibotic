@@ -1,8 +1,22 @@
 {
-  "generated": "2026-10-17T08:59:39+00:00",
+  "generated": "2026-10-17T13:26:22+00:00",
   "count": 36,
   "official": 15,
   "items": [
+    {
+      "symbol": "SPCX",
+      "status": "unofficial",
+      "date": "2026-10-20",
+      "days": 3,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 3,
+      "year": 2026,
+      "epsEstimate": 0.139,
+      "revenueEstimate": 12962361246,
+      "moved": true
+    },
     {
       "symbol": "IBM",
       "status": "official",
@@ -309,20 +323,6 @@
       "year": 2026,
       "epsEstimate": -0.1033,
       "revenueEstimate": 4420170,
-      "moved": false
-    },
-    {
-      "symbol": "SPCX",
-      "status": "unofficial",
-      "date": "2026-11-05",
-      "days": 19,
-      "hour": "",
-      "hourLabel": null,
-      "localWindow": null,
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": 0.139,
-      "revenueEstimate": 12962361246,
       "moved": false
     },
     {
