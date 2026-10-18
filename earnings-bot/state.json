@@ -95,8 +95,9 @@
     "status": "official"
   },
   "GOOGL": {
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "hour": "amc",
+    "movedAt": "2026-10-18",
     "sent": [
       "new"
     ],
