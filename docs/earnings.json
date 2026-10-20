@@ -1,22 +1,8 @@
 {
-  "generated": "2026-10-20T14:38:48+00:00",
+  "generated": "2026-10-20T21:12:41+00:00",
   "count": 36,
-  "official": 16,
+  "official": 15,
   "items": [
-    {
-      "symbol": "SPCX",
-      "status": "official",
-      "date": "2026-10-20",
-      "days": 0,
-      "hour": "amc",
-      "hourLabel": "AMC",
-      "localWindow": "22:05-22:45",
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": 0.1361,
-      "revenueEstimate": 12974725910,
-      "moved": true
-    },
     {
       "symbol": "IBM",
       "status": "official",
@@ -481,6 +467,15 @@
     },
     {
       "symbol": "NOK",
+      "status": "none",
+      "date": null,
+      "days": null,
+      "hourLabel": null,
+      "localWindow": null,
+      "moved": false
+    },
+    {
+      "symbol": "SPCX",
       "status": "none",
       "date": null,
       "days": null,

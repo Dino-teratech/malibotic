@@ -166,13 +166,7 @@
     "sent": [
       "new"
     ],
-    "status": "official",
-    "track": {
-      "base": 1029,
-      "day": 4,
-      "from": "2026-09-30",
-      "lastDay": "2026-10-16"
-    }
+    "status": "official"
   },
   "NOK": {
     "date": null,
@@ -276,15 +270,18 @@
     "status": "unofficial"
   },
   "SPCX": {
-    "date": "2026-10-20",
+    "date": null,
     "hour": "amc",
     "movedAt": "2026-10-17",
-    "resultSent": "2026-08-04",
-    "sent": [
-      "d0",
-      "new"
-    ],
-    "status": "official"
+    "resultSent": "2026-10-20",
+    "sent": [],
+    "status": "none",
+    "track": {
+      "base": 147.96,
+      "day": 1,
+      "from": "2026-10-20",
+      "lastDay": "2026-10-20"
+    }
   },
   "STX": {
     "date": "2026-10-27",
