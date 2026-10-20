@@ -277,14 +277,14 @@
   },
   "SPCX": {
     "date": "2026-10-20",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-17",
     "resultSent": "2026-08-04",
     "sent": [
       "d0",
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "STX": {
     "date": "2026-10-27",
