@@ -1,36 +1,8 @@
 {
-  "generated": "2026-10-21T14:50:17+00:00",
+  "generated": "2026-10-21T21:12:59+00:00",
   "count": 36,
   "official": 16,
   "items": [
-    {
-      "symbol": "IBM",
-      "status": "official",
-      "date": "2026-10-21",
-      "days": 0,
-      "hour": "amc",
-      "hourLabel": "AMC",
-      "localWindow": "22:05-22:45",
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": 2.8866,
-      "revenueEstimate": 16990066954,
-      "moved": false
-    },
-    {
-      "symbol": "TSLA",
-      "status": "official",
-      "date": "2026-10-21",
-      "days": 0,
-      "hour": "amc",
-      "hourLabel": "AMC",
-      "localWindow": "22:05-22:45",
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": 0.4358,
-      "revenueEstimate": 28440505633,
-      "moved": true
-    },
     {
       "symbol": "WDC",
       "status": "official",
@@ -464,6 +436,34 @@
       "epsEstimate": 43.3867,
       "revenueEstimate": 69315341975,
       "moved": false
+    },
+    {
+      "symbol": "IBM",
+      "status": "official",
+      "date": "2027-01-26",
+      "days": 97,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 4,
+      "year": 2026,
+      "epsEstimate": 4.6696,
+      "revenueEstimate": 20663323046,
+      "moved": true
+    },
+    {
+      "symbol": "TSLA",
+      "status": "official",
+      "date": "2027-01-26",
+      "days": 97,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 4,
+      "year": 2026,
+      "epsEstimate": 0.4693,
+      "revenueEstimate": 29061344504,
+      "moved": true
     },
     {
       "symbol": "NOK",
