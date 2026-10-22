@@ -114,9 +114,9 @@
     "status": "official",
     "track": {
       "base": 241.92,
-      "day": 1,
+      "day": 2,
       "from": "2026-10-21",
-      "lastDay": "2026-10-21"
+      "lastDay": "2026-10-22"
     }
   },
   "INTC": {
@@ -287,9 +287,9 @@
     "status": "none",
     "track": {
       "base": 147.96,
-      "day": 2,
+      "day": 3,
       "from": "2026-10-20",
-      "lastDay": "2026-10-21"
+      "lastDay": "2026-10-22"
     }
   },
   "STX": {
@@ -312,9 +312,9 @@
     "status": "official",
     "track": {
       "base": 373.71,
-      "day": 1,
+      "day": 2,
       "from": "2026-10-21",
-      "lastDay": "2026-10-21"
+      "lastDay": "2026-10-22"
     }
   },
   "TSM": {
@@ -342,15 +342,20 @@
     "status": "official"
   },
   "WDC": {
-    "date": "2026-10-22",
-    "hour": "amc",
-    "movedAt": "2026-10-01",
-    "resultSent": "2026-08-05",
+    "date": "2027-01-27",
+    "hour": "",
+    "movedAt": "2026-10-22",
+    "resultSent": "2026-10-22",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": 378.51,
+      "day": 1,
+      "from": "2026-10-22",
+      "lastDay": "2026-10-22"
+    }
   },
   "__meta": {
     "healthWarnedOn": "2026-08-31"

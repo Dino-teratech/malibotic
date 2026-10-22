@@ -1,22 +1,8 @@
 {
-  "generated": "2026-10-22T14:51:02+00:00",
+  "generated": "2026-10-22T21:09:43+00:00",
   "count": 36,
-  "official": 18,
+  "official": 17,
   "items": [
-    {
-      "symbol": "WDC",
-      "status": "official",
-      "date": "2026-10-22",
-      "days": 0,
-      "hour": "amc",
-      "hourLabel": "AMC",
-      "localWindow": "22:05-22:45",
-      "quarter": 1,
-      "year": 2027,
-      "epsEstimate": 4.128,
-      "revenueEstimate": 4176880957,
-      "moved": false
-    },
     {
       "symbol": "STX",
       "status": "official",
@@ -463,6 +449,20 @@
       "year": 2026,
       "epsEstimate": 0.4693,
       "revenueEstimate": 29061344504,
+      "moved": true
+    },
+    {
+      "symbol": "WDC",
+      "status": "unofficial",
+      "date": "2027-01-27",
+      "days": 97,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 2,
+      "year": 2027,
+      "epsEstimate": 4.8157,
+      "revenueEstimate": 4610382511,
       "moved": true
     },
     {
