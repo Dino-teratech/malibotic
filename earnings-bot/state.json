@@ -159,12 +159,12 @@
   },
   "MSFT": {
     "date": "2026-10-28",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-10",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "MU": {
     "date": "2026-12-15",
@@ -334,12 +334,12 @@
   },
   "VRT": {
     "date": "2026-10-28",
-    "hour": "",
+    "hour": "bmo",
     "movedAt": "2026-10-02",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "WDC": {
     "date": "2026-10-22",
@@ -347,6 +347,7 @@
     "movedAt": "2026-10-01",
     "resultSent": "2026-08-05",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
