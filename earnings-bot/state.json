@@ -49,12 +49,12 @@
   },
   "CCJ": {
     "date": "2026-10-30",
-    "hour": "",
+    "hour": "bmo",
     "movedAt": "2026-09-29",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "CRSP": {
     "date": "2026-11-04",
@@ -114,9 +114,9 @@
     "status": "official",
     "track": {
       "base": 241.92,
-      "day": 2,
+      "day": 3,
       "from": "2026-10-21",
-      "lastDay": "2026-10-22"
+      "lastDay": "2026-10-23"
     }
   },
   "INTC": {
@@ -287,9 +287,9 @@
     "status": "none",
     "track": {
       "base": 147.96,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-20",
-      "lastDay": "2026-10-22"
+      "lastDay": "2026-10-23"
     }
   },
   "STX": {
@@ -312,9 +312,9 @@
     "status": "official",
     "track": {
       "base": 373.71,
-      "day": 2,
+      "day": 3,
       "from": "2026-10-21",
-      "lastDay": "2026-10-22"
+      "lastDay": "2026-10-23"
     }
   },
   "TSM": {
@@ -352,9 +352,9 @@
     "status": "unofficial",
     "track": {
       "base": 378.51,
-      "day": 1,
+      "day": 2,
       "from": "2026-10-22",
-      "lastDay": "2026-10-22"
+      "lastDay": "2026-10-23"
     }
   },
   "__meta": {

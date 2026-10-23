@@ -1,7 +1,7 @@
 {
-  "generated": "2026-10-23T20:56:37+00:00",
+  "generated": "2026-10-23T23:45:37+00:00",
   "count": 36,
-  "official": 18,
+  "official": 19,
   "items": [
     {
       "symbol": "STX",
@@ -145,12 +145,12 @@
     },
     {
       "symbol": "CCJ",
-      "status": "unofficial",
+      "status": "official",
       "date": "2026-10-30",
       "days": 7,
-      "hour": "",
-      "hourLabel": null,
-      "localWindow": null,
+      "hour": "bmo",
+      "hourLabel": "BMO",
+      "localWindow": "11:30-14:15",
       "quarter": 3,
       "year": 2026,
       "epsEstimate": 0.3191,
