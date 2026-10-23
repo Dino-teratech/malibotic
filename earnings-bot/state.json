@@ -270,13 +270,13 @@
   },
   "SNDK": {
     "date": "2026-10-29",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-01",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "SPCX": {
     "date": null,
