@@ -191,9 +191,9 @@
     "status": "official"
   },
   "NVDA": {
-    "date": "2026-11-17",
+    "date": "2026-11-25",
     "hour": "amc",
-    "movedAt": "2026-08-27",
+    "movedAt": "2026-10-27",
     "resultSent": "2026-08-26",
     "sent": [
       "new"
@@ -222,12 +222,12 @@
   },
   "PLTR": {
     "date": "2026-11-02",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-14",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "QBTS": {
     "date": "2026-11-05",
@@ -297,6 +297,7 @@
     "hour": "amc",
     "movedAt": "2026-10-14",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
