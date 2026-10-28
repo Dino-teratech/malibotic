@@ -343,14 +343,20 @@
     "status": "unofficial"
   },
   "VRT": {
-    "date": "2026-10-28",
-    "hour": "bmo",
-    "movedAt": "2026-10-02",
+    "date": "2027-02-09",
+    "hour": "amc",
+    "movedAt": "2026-10-28",
+    "resultSent": "2026-10-28",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-28",
+      "lastDay": null
+    }
   },
   "WDC": {
     "date": "2027-01-27",

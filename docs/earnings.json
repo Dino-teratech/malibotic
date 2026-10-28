@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-28T00:14:21+00:00",
+  "generated": "2026-10-28T10:57:05+00:00",
   "count": 36,
   "official": 21,
   "items": [
@@ -43,20 +43,6 @@
       "year": 2026,
       "epsEstimate": 1.0341,
       "revenueEstimate": 4135607751,
-      "moved": false
-    },
-    {
-      "symbol": "VRT",
-      "status": "official",
-      "date": "2026-10-28",
-      "days": 0,
-      "hour": "bmo",
-      "hourLabel": "BMO",
-      "localWindow": "11:30-14:15",
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": 1.8488,
-      "revenueEstimate": 3797283779,
       "moved": false
     },
     {
@@ -464,6 +450,20 @@
       "epsEstimate": 5.8822,
       "revenueEstimate": 5149979152,
       "moved": false
+    },
+    {
+      "symbol": "VRT",
+      "status": "official",
+      "date": "2027-02-09",
+      "days": 104,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 4,
+      "year": 2026,
+      "epsEstimate": 2.2441,
+      "revenueEstimate": 4350698725,
+      "moved": true
     },
     {
       "symbol": "NOK",
