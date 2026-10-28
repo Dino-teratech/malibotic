@@ -10,13 +10,13 @@
   },
   "ALAB": {
     "date": "2026-11-03",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-09",
     "resultSent": "2026-08-04",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "AMD": {
     "date": "2026-11-03",
@@ -99,6 +99,7 @@
     "hour": "amc",
     "movedAt": "2026-10-18",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -139,9 +140,9 @@
     "status": "unofficial"
   },
   "KTOS": {
-    "date": "2026-10-29",
+    "date": "2026-11-05",
     "hour": "",
-    "movedAt": "2026-10-20",
+    "movedAt": "2026-10-28",
     "resultSent": "2026-08-04",
     "sent": [
       "new"
@@ -162,6 +163,7 @@
     "hour": "amc",
     "movedAt": "2026-10-10",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -186,6 +188,7 @@
     "hour": "amc",
     "movedAt": "2026-10-02",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -212,13 +215,13 @@
   },
   "OUST": {
     "date": "2026-11-03",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-20",
     "resultSent": "2026-08-06",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "PLTR": {
     "date": "2026-11-02",
@@ -293,14 +296,20 @@
     }
   },
   "STX": {
-    "date": "2026-10-27",
-    "hour": "amc",
-    "movedAt": "2026-10-14",
+    "date": "2027-01-25",
+    "hour": "",
+    "movedAt": "2026-10-28",
+    "resultSent": "2026-10-27",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-27",
+      "lastDay": null
+    }
   },
   "TSLA": {
     "date": "2027-01-26",
@@ -338,6 +347,7 @@
     "hour": "bmo",
     "movedAt": "2026-10-02",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
