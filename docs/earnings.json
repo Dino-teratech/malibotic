@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-29T11:17:02+00:00",
+  "generated": "2026-10-29T18:46:29+00:00",
   "count": 36,
   "official": 20,
   "items": [
@@ -29,20 +29,6 @@
       "year": 2026,
       "epsEstimate": 0.3996,
       "revenueEstimate": 16781909631,
-      "moved": false
-    },
-    {
-      "symbol": "MA",
-      "status": "official",
-      "date": "2026-10-29",
-      "days": 0,
-      "hour": "bmo",
-      "hourLabel": "BMO",
-      "localWindow": "11:30-14:15",
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": 5.3156,
-      "revenueEstimate": 9942782507,
       "moved": false
     },
     {
@@ -422,6 +408,20 @@
       "epsEstimate": 0.4596,
       "revenueEstimate": 29488824566,
       "moved": false
+    },
+    {
+      "symbol": "MA",
+      "status": "official",
+      "date": "2027-01-27",
+      "days": 90,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 4,
+      "year": 2026,
+      "epsEstimate": 5.3362,
+      "revenueEstimate": 10262403228,
+      "moved": true
     },
     {
       "symbol": "WDC",
