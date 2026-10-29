@@ -33,6 +33,7 @@
     "hour": "amc",
     "movedAt": "2026-10-02",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -95,14 +96,20 @@
     "status": "official"
   },
   "GOOGL": {
-    "date": "2026-10-28",
+    "date": "2027-02-02",
     "hour": "amc",
-    "movedAt": "2026-10-18",
+    "movedAt": "2026-10-29",
+    "resultSent": "2026-10-28",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-28",
+      "lastDay": null
+    }
   },
   "IBM": {
     "date": "2027-01-26",
@@ -125,6 +132,7 @@
     "hour": "amc",
     "movedAt": "2026-10-09",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -154,19 +162,26 @@
     "hour": "bmo",
     "movedAt": "2026-10-11",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
   },
   "MSFT": {
-    "date": "2026-10-28",
-    "hour": "amc",
-    "movedAt": "2026-10-10",
+    "date": "2027-01-26",
+    "hour": "",
+    "movedAt": "2026-10-29",
+    "resultSent": "2026-10-28",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-28",
+      "lastDay": null
+    }
   },
   "MU": {
     "date": "2026-12-15",
@@ -184,19 +199,25 @@
     "status": "none"
   },
   "NOW": {
-    "date": "2026-10-28",
+    "date": "2027-01-26",
     "hour": "amc",
-    "movedAt": "2026-10-02",
+    "movedAt": "2026-10-29",
+    "resultSent": "2026-10-28",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-28",
+      "lastDay": null
+    }
   },
   "NVDA": {
-    "date": "2026-11-25",
+    "date": "2026-11-17",
     "hour": "amc",
-    "movedAt": "2026-10-27",
+    "movedAt": "2026-10-29",
     "resultSent": "2026-08-26",
     "sent": [
       "new"
@@ -233,9 +254,9 @@
     "status": "official"
   },
   "QBTS": {
-    "date": "2026-11-05",
+    "date": "2026-11-10",
     "hour": "",
-    "movedAt": "2026-10-21",
+    "movedAt": "2026-10-29",
     "resultSent": "2026-08-06",
     "sent": [
       "new"
@@ -277,6 +298,7 @@
     "movedAt": "2026-10-01",
     "resultSent": "2026-08-05",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
