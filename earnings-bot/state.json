@@ -55,14 +55,20 @@
     "status": "official"
   },
   "CCJ": {
-    "date": "2026-10-30",
-    "hour": "bmo",
-    "movedAt": "2026-09-29",
+    "date": "2027-02-11",
+    "hour": "amc",
+    "movedAt": "2026-10-30",
+    "resultSent": "2026-10-30",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-30",
+      "lastDay": null
+    }
   },
   "CRSP": {
     "date": "2026-11-04",
