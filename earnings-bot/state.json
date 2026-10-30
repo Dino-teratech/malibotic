@@ -29,14 +29,20 @@
     "status": "official"
   },
   "AMZN": {
-    "date": "2026-10-29",
+    "date": "2027-02-03",
     "hour": "amc",
-    "movedAt": "2026-10-02",
+    "movedAt": "2026-10-30",
+    "resultSent": "2026-10-29",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-29",
+      "lastDay": null
+    }
   },
   "AVGO": {
     "date": "2026-12-09",
@@ -53,6 +59,7 @@
     "hour": "bmo",
     "movedAt": "2026-09-29",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -128,34 +135,40 @@
     }
   },
   "INTC": {
-    "date": "2026-10-29",
+    "date": "2027-01-20",
     "hour": "amc",
-    "movedAt": "2026-10-09",
+    "movedAt": "2026-10-30",
+    "resultSent": "2026-10-29",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-29",
+      "lastDay": null
+    }
   },
   "IONQ": {
     "date": "2026-11-05",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-25",
     "resultSent": "2026-08-05",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "KTOS": {
     "date": "2026-11-05",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-28",
     "resultSent": "2026-08-04",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "MA": {
     "date": "2027-01-27",
@@ -289,9 +302,9 @@
     "status": "unofficial"
   },
   "RGTI": {
-    "date": "2026-11-16",
+    "date": "2026-11-10",
     "hour": "",
-    "movedAt": "2026-10-21",
+    "movedAt": "2026-10-30",
     "resultSent": "2026-08-06",
     "sent": [
       "new"
@@ -299,15 +312,20 @@
     "status": "unofficial"
   },
   "SNDK": {
-    "date": "2026-10-29",
-    "hour": "amc",
-    "movedAt": "2026-10-01",
-    "resultSent": "2026-08-05",
+    "date": "2027-01-27",
+    "hour": "",
+    "movedAt": "2026-10-30",
+    "resultSent": "2026-10-29",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-10-29",
+      "lastDay": null
+    }
   },
   "SPCX": {
     "date": null,
