@@ -4,6 +4,7 @@
     "hour": "amc",
     "movedAt": "2026-10-09",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -80,9 +81,9 @@
     "status": "unofficial"
   },
   "DELL": {
-    "date": "2026-11-23",
+    "date": "2026-11-24",
     "hour": "",
-    "movedAt": "2026-09-02",
+    "movedAt": "2026-11-02",
     "resultSent": "2026-09-01",
     "sent": [
       "new"
@@ -274,6 +275,7 @@
     "hour": "amc",
     "movedAt": "2026-10-14",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -289,9 +291,9 @@
     "status": "unofficial"
   },
   "QUBT": {
-    "date": "2026-11-12",
+    "date": "2026-11-09",
     "hour": "",
-    "movedAt": "2026-08-10",
+    "movedAt": "2026-11-02",
     "resultSent": "2026-08-10",
     "sent": [
       "new"
@@ -299,8 +301,9 @@
     "status": "unofficial"
   },
   "RCAT": {
-    "date": "2026-11-11",
+    "date": "2026-11-16",
     "hour": "",
+    "movedAt": "2026-11-02",
     "resultSent": "2026-08-06",
     "sent": [
       "new"
