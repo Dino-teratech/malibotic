@@ -1,13 +1,19 @@
 {
   "AAPL": {
-    "date": "2026-11-02",
-    "hour": "amc",
-    "movedAt": "2026-10-09",
+    "date": "2027-01-27",
+    "hour": "",
+    "movedAt": "2026-11-03",
+    "resultSent": "2026-11-02",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-02",
+      "lastDay": null
+    }
   },
   "ALAB": {
     "date": "2026-11-03",
@@ -15,6 +21,7 @@
     "movedAt": "2026-10-09",
     "resultSent": "2026-08-04",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -25,6 +32,7 @@
     "movedAt": "2026-10-06",
     "resultSent": "2026-08-04",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -95,6 +103,7 @@
     "hour": "bmo",
     "movedAt": "2026-10-06",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -266,19 +275,26 @@
     "movedAt": "2026-10-20",
     "resultSent": "2026-08-06",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
   },
   "PLTR": {
-    "date": "2026-11-02",
+    "date": "2027-02-01",
     "hour": "amc",
-    "movedAt": "2026-10-14",
+    "movedAt": "2026-11-03",
+    "resultSent": "2026-11-02",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-02",
+      "lastDay": null
+    }
   },
   "QBTS": {
     "date": "2026-11-10",
@@ -292,13 +308,13 @@
   },
   "QUBT": {
     "date": "2026-11-09",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-11-02",
     "resultSent": "2026-08-10",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "RCAT": {
     "date": "2026-11-16",
@@ -389,13 +405,13 @@
   },
   "TTWO": {
     "date": "2026-11-09",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-10-15",
     "resultSent": "2026-08-07",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "VRT": {
     "date": "2027-02-09",
