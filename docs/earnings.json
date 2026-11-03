@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-03T00:28:04+00:00",
+  "generated": "2026-11-03T12:35:48+00:00",
   "count": 36,
   "official": 22,
   "items": [
@@ -29,20 +29,6 @@
       "year": 2026,
       "epsEstimate": 1.969,
       "revenueEstimate": 13222748108,
-      "moved": false
-    },
-    {
-      "symbol": "ETN",
-      "status": "official",
-      "date": "2026-11-03",
-      "days": 0,
-      "hour": "bmo",
-      "hourLabel": "BMO",
-      "localWindow": "12:30-15:15",
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": 3.5787,
-      "revenueEstimate": 8591447840,
       "moved": false
     },
     {
@@ -394,6 +380,20 @@
       "epsEstimate": 5.9309,
       "revenueEstimate": 5176707691,
       "moved": false
+    },
+    {
+      "symbol": "ETN",
+      "status": "official",
+      "date": "2027-02-01",
+      "days": 90,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 4,
+      "year": 2026,
+      "epsEstimate": 4.1119,
+      "revenueEstimate": 8561529266,
+      "moved": true
     },
     {
       "symbol": "PLTR",

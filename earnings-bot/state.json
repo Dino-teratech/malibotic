@@ -99,14 +99,20 @@
     "status": "unofficial"
   },
   "ETN": {
-    "date": "2026-11-03",
-    "hour": "bmo",
-    "movedAt": "2026-10-06",
+    "date": "2027-02-01",
+    "hour": "amc",
+    "movedAt": "2026-11-03",
+    "resultSent": "2026-11-03",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-03",
+      "lastDay": null
+    }
   },
   "GFF": {
     "date": "2026-11-12",
