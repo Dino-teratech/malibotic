@@ -90,14 +90,13 @@
     }
   },
   "CRSP": {
-    "date": "2026-11-04",
-    "hour": "",
-    "movedAt": "2026-10-21",
+    "date": "2027-02-10",
+    "hour": "amc",
+    "movedAt": "2026-11-05",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "DELL": {
     "date": "2026-11-24",
@@ -189,6 +188,7 @@
     "movedAt": "2026-10-25",
     "resultSent": "2026-08-05",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -199,6 +199,7 @@
     "movedAt": "2026-10-28",
     "resultSent": "2026-08-04",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
