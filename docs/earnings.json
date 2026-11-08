@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-08T11:40:23+00:00",
+  "generated": "2026-11-08T18:12:04+00:00",
   "count": 36,
   "official": 25,
   "items": [
@@ -14,7 +14,7 @@
       "quarter": 3,
       "year": 2026,
       "epsEstimate": -0.049,
-      "revenueEstimate": 7689270,
+      "revenueEstimate": 7358963,
       "moved": false
     },
     {
@@ -27,8 +27,8 @@
       "localWindow": "22:05-22:45",
       "quarter": 2,
       "year": 2027,
-      "epsEstimate": 0.9604,
-      "revenueEstimate": 1608521640,
+      "epsEstimate": 0.9589,
+      "revenueEstimate": 1606767240,
       "moved": false
     },
     {
@@ -56,7 +56,7 @@
       "quarter": 3,
       "year": 2026,
       "epsEstimate": -0.0523,
-      "revenueEstimate": 3749438,
+      "revenueEstimate": 3589808,
       "moved": false
     },
     {
@@ -111,8 +111,8 @@
       "localWindow": null,
       "quarter": 3,
       "year": 2027,
-      "epsEstimate": 6.682,
-      "revenueEstimate": 50148620473,
+      "epsEstimate": 6.6854,
+      "revenueEstimate": 50193640458,
       "moved": false
     },
     {
