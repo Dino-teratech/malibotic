@@ -288,9 +288,9 @@
     "status": "official"
   },
   "ORCL": {
-    "date": "2026-12-08",
+    "date": "2026-12-14",
     "hour": "",
-    "movedAt": "2026-09-10",
+    "movedAt": "2026-11-09",
     "resultSent": "2026-09-10",
     "sent": [
       "new"
@@ -345,6 +345,7 @@
     "movedAt": "2026-11-02",
     "resultSent": "2026-08-10",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -442,6 +443,7 @@
     "movedAt": "2026-10-15",
     "resultSent": "2026-08-07",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
