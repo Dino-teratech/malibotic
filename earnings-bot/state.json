@@ -64,9 +64,9 @@
     }
   },
   "AVGO": {
-    "date": "2026-12-09",
+    "date": "2026-12-10",
     "hour": "amc",
-    "movedAt": "2026-09-02",
+    "movedAt": "2026-11-10",
     "resultSent": "2026-09-02",
     "sent": [
       "new"
@@ -335,20 +335,26 @@
     "movedAt": "2026-10-29",
     "resultSent": "2026-08-06",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
   },
   "QUBT": {
-    "date": "2026-11-09",
-    "hour": "amc",
-    "movedAt": "2026-11-02",
-    "resultSent": "2026-08-10",
+    "date": "2027-03-01",
+    "hour": "",
+    "movedAt": "2026-11-10",
+    "resultSent": "2026-11-09",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-09",
+      "lastDay": null
+    }
   },
   "RCAT": {
     "date": "2026-11-16",
@@ -366,6 +372,7 @@
     "movedAt": "2026-10-30",
     "resultSent": "2026-08-06",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -438,15 +445,20 @@
     "status": "none"
   },
   "TTWO": {
-    "date": "2026-11-09",
-    "hour": "amc",
-    "movedAt": "2026-10-15",
-    "resultSent": "2026-08-07",
+    "date": "2027-02-01",
+    "hour": "",
+    "movedAt": "2026-11-10",
+    "resultSent": "2026-11-09",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-09",
+      "lastDay": null
+    }
   },
   "VRT": {
     "date": "2027-02-09",
