@@ -1,22 +1,8 @@
 {
-  "generated": "2026-11-10T01:08:44+00:00",
+  "generated": "2026-11-10T13:13:35+00:00",
   "count": 36,
   "official": 23,
   "items": [
-    {
-      "symbol": "QBTS",
-      "status": "official",
-      "date": "2026-11-10",
-      "days": 0,
-      "hour": "bmo",
-      "hourLabel": "BMO",
-      "localWindow": "12:30-15:15",
-      "quarter": 3,
-      "year": 2026,
-      "epsEstimate": -0.1033,
-      "revenueEstimate": 4420170,
-      "moved": false
-    },
     {
       "symbol": "RGTI",
       "status": "official",
@@ -435,6 +421,20 @@
       "year": 2026,
       "epsEstimate": -0.3993,
       "revenueEstimate": 190859034,
+      "moved": true
+    },
+    {
+      "symbol": "QBTS",
+      "status": "official",
+      "date": "2027-02-24",
+      "days": 106,
+      "hour": "amc",
+      "hourLabel": "AMC",
+      "localWindow": "22:05-22:45",
+      "quarter": 4,
+      "year": 2026,
+      "epsEstimate": -0.0576,
+      "revenueEstimate": 33010708,
       "moved": true
     },
     {
