@@ -9,10 +9,10 @@
     ],
     "status": "unofficial",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 350.69,
+      "day": 1,
       "from": "2026-11-02",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "ALAB": {
@@ -25,10 +25,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 216.87,
+      "day": 1,
       "from": "2026-11-03",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "AMD": {
@@ -41,10 +41,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 508.58,
+      "day": 1,
       "from": "2026-11-03",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "AMZN": {
@@ -57,10 +57,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 266.93,
+      "day": 1,
       "from": "2026-10-29",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "AVGO": {
@@ -83,10 +83,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 75.37,
+      "day": 1,
       "from": "2026-10-30",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "CRSP": {
@@ -118,10 +118,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 359.3,
+      "day": 1,
       "from": "2026-11-03",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "GFF": {
@@ -144,10 +144,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 288.15,
+      "day": 1,
       "from": "2026-10-28",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "IBM": {
@@ -161,9 +161,9 @@
     "status": "official",
     "track": {
       "base": 241.92,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-21",
-      "lastDay": "2026-10-23"
+      "lastDay": "2026-11-10"
     }
   },
   "INTC": {
@@ -176,10 +176,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 59.37,
+      "day": 1,
       "from": "2026-10-29",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "IONQ": {
@@ -192,10 +192,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 35.34,
+      "day": 1,
       "from": "2026-11-05",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "KTOS": {
@@ -208,10 +208,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 37.69,
+      "day": 1,
       "from": "2026-11-05",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "MA": {
@@ -224,10 +224,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 655.81,
+      "day": 1,
       "from": "2026-10-29",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "MSFT": {
@@ -240,10 +240,10 @@
     ],
     "status": "unofficial",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 545.18,
+      "day": 1,
       "from": "2026-10-28",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "MU": {
@@ -271,10 +271,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 102.76,
+      "day": 1,
       "from": "2026-10-28",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "NVDA": {
@@ -307,10 +307,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 38.57,
+      "day": 1,
       "from": "2026-11-03",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "PLTR": {
@@ -323,10 +323,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 169.2,
+      "day": 1,
       "from": "2026-11-02",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "QBTS": {
@@ -339,10 +339,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 11.47,
+      "day": 1,
       "from": "2026-11-10",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "QUBT": {
@@ -355,10 +355,10 @@
     ],
     "status": "unofficial",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 6.86,
+      "day": 1,
       "from": "2026-11-09",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "RCAT": {
@@ -392,10 +392,10 @@
     ],
     "status": "unofficial",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 886.51,
+      "day": 1,
       "from": "2026-10-29",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "SPCX": {
@@ -404,13 +404,7 @@
     "movedAt": "2026-10-17",
     "resultSent": "2026-10-20",
     "sent": [],
-    "status": "none",
-    "track": {
-      "base": 147.96,
-      "day": 4,
-      "from": "2026-10-20",
-      "lastDay": "2026-10-23"
-    }
+    "status": "none"
   },
   "STX": {
     "date": "2027-01-25",
@@ -422,10 +416,10 @@
     ],
     "status": "unofficial",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 506.14,
+      "day": 1,
       "from": "2026-10-27",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "TSLA": {
@@ -439,9 +433,9 @@
     "status": "official",
     "track": {
       "base": 373.71,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-21",
-      "lastDay": "2026-10-23"
+      "lastDay": "2026-11-10"
     }
   },
   "TSM": {
@@ -459,10 +453,10 @@
     ],
     "status": "unofficial",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 207.4,
+      "day": 1,
       "from": "2026-11-09",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "VRT": {
@@ -475,10 +469,10 @@
     ],
     "status": "official",
     "track": {
-      "base": null,
-      "day": 0,
+      "base": 200.47,
+      "day": 1,
       "from": "2026-10-28",
-      "lastDay": null
+      "lastDay": "2026-11-10"
     }
   },
   "WDC": {
@@ -492,9 +486,9 @@
     "status": "unofficial",
     "track": {
       "base": 378.51,
-      "day": 2,
+      "day": 3,
       "from": "2026-10-22",
-      "lastDay": "2026-10-23"
+      "lastDay": "2026-11-10"
     }
   },
   "__meta": {
