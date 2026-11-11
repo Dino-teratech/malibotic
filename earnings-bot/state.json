@@ -64,9 +64,9 @@
     }
   },
   "AVGO": {
-    "date": "2026-12-10",
+    "date": "2026-12-09",
     "hour": "amc",
-    "movedAt": "2026-11-10",
+    "movedAt": "2026-11-11",
     "resultSent": "2026-09-02",
     "sent": [
       "new"
@@ -363,24 +363,29 @@
   },
   "RCAT": {
     "date": "2026-11-16",
-    "hour": "",
+    "hour": "amc",
     "movedAt": "2026-11-02",
     "resultSent": "2026-08-06",
     "sent": [
       "new"
     ],
-    "status": "unofficial"
+    "status": "official"
   },
   "RGTI": {
-    "date": "2026-11-10",
+    "date": "2027-03-02",
     "hour": "amc",
-    "movedAt": "2026-10-30",
-    "resultSent": "2026-08-06",
+    "movedAt": "2026-11-11",
+    "resultSent": "2026-11-10",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-10",
+      "lastDay": null
+    }
   },
   "SNDK": {
     "date": "2027-01-27",
