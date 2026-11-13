@@ -125,12 +125,11 @@
     }
   },
   "GFF": {
-    "date": "2026-11-12",
-    "hour": "amc",
-    "movedAt": "2026-10-13",
+    "date": "2026-11-17",
+    "hour": "bmo",
+    "movedAt": "2026-11-13",
     "resultSent": "2026-08-05",
     "sent": [
-      "d0",
       "new"
     ],
     "status": "official"
