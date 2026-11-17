@@ -1,22 +1,8 @@
 {
-  "generated": "2026-11-17T01:30:42+00:00",
+  "generated": "2026-11-17T14:04:57+00:00",
   "count": 36,
-  "official": 23,
+  "official": 22,
   "items": [
-    {
-      "symbol": "GFF",
-      "status": "official",
-      "date": "2026-11-17",
-      "days": 0,
-      "hour": "bmo",
-      "hourLabel": "BMO",
-      "localWindow": "12:30-15:15",
-      "quarter": 4,
-      "year": 2026,
-      "epsEstimate": 1.6016,
-      "revenueEstimate": 485473336,
-      "moved": true
-    },
     {
       "symbol": "NVDA",
       "status": "official",
@@ -310,6 +296,20 @@
       "epsEstimate": 2.4448,
       "revenueEstimate": 249944551713,
       "moved": false
+    },
+    {
+      "symbol": "GFF",
+      "status": "unofficial",
+      "date": "2027-02-03",
+      "days": 78,
+      "hour": "",
+      "hourLabel": null,
+      "localWindow": null,
+      "quarter": 1,
+      "year": 2027,
+      "epsEstimate": 1.4501,
+      "revenueEstimate": 475356500,
+      "moved": true
     },
     {
       "symbol": "ALAB",

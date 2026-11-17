@@ -125,15 +125,20 @@
     }
   },
   "GFF": {
-    "date": "2026-11-17",
-    "hour": "bmo",
-    "movedAt": "2026-11-13",
-    "resultSent": "2026-08-05",
+    "date": "2027-02-03",
+    "hour": "",
+    "movedAt": "2026-11-17",
+    "resultSent": "2026-11-17",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-17",
+      "lastDay": null
+    }
   },
   "GOOGL": {
     "date": "2027-02-02",
