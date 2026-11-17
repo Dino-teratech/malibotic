@@ -130,6 +130,7 @@
     "movedAt": "2026-11-13",
     "resultSent": "2026-08-05",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -277,6 +278,7 @@
     "movedAt": "2026-10-29",
     "resultSent": "2026-08-26",
     "sent": [
+      "d0",
       "new"
     ],
     "status": "official"
@@ -356,15 +358,20 @@
     }
   },
   "RCAT": {
-    "date": "2026-11-16",
-    "hour": "amc",
-    "movedAt": "2026-11-02",
-    "resultSent": "2026-08-06",
+    "date": "2027-03-17",
+    "hour": "",
+    "movedAt": "2026-11-17",
+    "resultSent": "2026-11-16",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "unofficial",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-16",
+      "lastDay": null
+    }
   },
   "RGTI": {
     "date": "2027-03-02",
