@@ -10,9 +10,9 @@
     "status": "unofficial",
     "track": {
       "base": 350.69,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-02",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "ALAB": {
@@ -26,9 +26,9 @@
     "status": "official",
     "track": {
       "base": 216.87,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-03",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "AMD": {
@@ -42,9 +42,9 @@
     "status": "official",
     "track": {
       "base": 508.58,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-03",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "AMZN": {
@@ -58,9 +58,9 @@
     "status": "official",
     "track": {
       "base": 266.93,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-29",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "AVGO": {
@@ -84,9 +84,9 @@
     "status": "official",
     "track": {
       "base": 75.37,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-30",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "CRSP": {
@@ -119,9 +119,9 @@
     "status": "official",
     "track": {
       "base": 359.3,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-03",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "GFF": {
@@ -135,9 +135,9 @@
     "status": "unofficial",
     "track": {
       "base": 104.75,
-      "day": 1,
+      "day": 2,
       "from": "2026-11-17",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "GOOGL": {
@@ -151,9 +151,9 @@
     "status": "official",
     "track": {
       "base": 288.15,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-28",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "IBM": {
@@ -177,9 +177,9 @@
     "status": "official",
     "track": {
       "base": 59.37,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-29",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "IONQ": {
@@ -193,9 +193,9 @@
     "status": "official",
     "track": {
       "base": 35.34,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-05",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "KTOS": {
@@ -209,9 +209,9 @@
     "status": "official",
     "track": {
       "base": 37.69,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-05",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "MA": {
@@ -225,9 +225,9 @@
     "status": "official",
     "track": {
       "base": 655.81,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-29",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "MSFT": {
@@ -241,9 +241,9 @@
     "status": "unofficial",
     "track": {
       "base": 545.18,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-28",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "MU": {
@@ -272,9 +272,9 @@
     "status": "official",
     "track": {
       "base": 102.76,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-28",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "NVDA": {
@@ -288,9 +288,9 @@
     "status": "official",
     "track": {
       "base": 155.46,
-      "day": 1,
+      "day": 2,
       "from": "2026-11-17",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "ORCL": {
@@ -314,9 +314,9 @@
     "status": "official",
     "track": {
       "base": 38.57,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-03",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "PLTR": {
@@ -330,9 +330,9 @@
     "status": "official",
     "track": {
       "base": 169.2,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-02",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "QBTS": {
@@ -346,9 +346,9 @@
     "status": "official",
     "track": {
       "base": 11.47,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-10",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "QUBT": {
@@ -362,9 +362,9 @@
     "status": "unofficial",
     "track": {
       "base": 6.86,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-09",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "RCAT": {
@@ -378,9 +378,9 @@
     "status": "unofficial",
     "track": {
       "base": 2.41,
-      "day": 1,
+      "day": 2,
       "from": "2026-11-16",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "RGTI": {
@@ -394,9 +394,9 @@
     "status": "official",
     "track": {
       "base": 11.11,
-      "day": 2,
+      "day": 3,
       "from": "2026-11-10",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "SNDK": {
@@ -410,9 +410,9 @@
     "status": "unofficial",
     "track": {
       "base": 886.51,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-29",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "SPCX": {
@@ -434,9 +434,9 @@
     "status": "unofficial",
     "track": {
       "base": 506.14,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-27",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "TSLA": {
@@ -465,9 +465,9 @@
     "status": "unofficial",
     "track": {
       "base": 207.4,
-      "day": 3,
+      "day": 4,
       "from": "2026-11-09",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "VRT": {
@@ -481,9 +481,9 @@
     "status": "official",
     "track": {
       "base": 200.47,
-      "day": 3,
+      "day": 4,
       "from": "2026-10-28",
-      "lastDay": "2026-11-18"
+      "lastDay": "2026-11-20"
     }
   },
   "WDC": {
