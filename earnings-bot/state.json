@@ -99,15 +99,20 @@
     "status": "official"
   },
   "DELL": {
-    "date": "2026-11-24",
+    "date": "2027-02-01",
     "hour": "amc",
-    "movedAt": "2026-11-02",
-    "resultSent": "2026-09-01",
+    "movedAt": "2026-11-25",
+    "resultSent": "2026-11-24",
     "sent": [
-      "d0",
       "new"
     ],
-    "status": "official"
+    "status": "official",
+    "track": {
+      "base": null,
+      "day": 0,
+      "from": "2026-11-24",
+      "lastDay": null
+    }
   },
   "ETN": {
     "date": "2027-02-01",
